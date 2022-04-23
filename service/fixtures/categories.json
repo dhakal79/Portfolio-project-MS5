@@ -1,0 +1,18 @@
+[
+   {
+       "pk": 1,
+       "model": "service.categories",
+       "fields": {
+           "name": "membrane",
+           "friendly_name": "Membrane Technology"
+       }
+   },
+   {
+       "pk": 5,
+       "model": "service.categories",
+       "fields": {
+           "name": "frontend development",
+           "friendly_name": "Front End Development"
+       }
+   }
+]
