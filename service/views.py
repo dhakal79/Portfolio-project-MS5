@@ -14,6 +14,7 @@ def all_products(request):
         'services': services,
     }
 
+
     return render(request, 'service/service.html', context)
 
 
