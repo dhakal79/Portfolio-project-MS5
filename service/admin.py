@@ -7,7 +7,7 @@ class ServiceAdmin(admin.ModelAdmin):
     list_display = (
         "name",
         "blurb",
-        "genre",
+        "category",
         "price",
         "image",
     )
@@ -22,5 +22,5 @@ class CategoryAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register(Service)
-admin.site.register(Category)
+admin.site.register(Service, ServiceAdmin)
+admin.site.register(Category, CategoryAdmin)
