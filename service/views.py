@@ -3,10 +3,7 @@ from .models import Service
 
 # Create your views here.
 def all_products(request):
-    """  
-    A view to show all products in the
-    database, including sorting and search results
-    """ 
+    """A view to show all products including sorting and search results"""
 
     services = Service.objects.all()
 
@@ -14,8 +11,4 @@ def all_products(request):
         'services': services,
     }
 
-
     return render(request, 'service/service.html', context)
-
-
-    
