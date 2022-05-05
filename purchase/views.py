@@ -20,6 +20,5 @@ def add_to_purchase(request, item_id):
         purchase[item_id] = quantity
 
     request.session['purchase'] = purchase
-    print(request.session['purchase'])
     return redirect(redirect_url)
     
