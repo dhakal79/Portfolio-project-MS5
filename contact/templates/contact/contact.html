@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="#">
+{% endblock %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{%block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class=" mb-4 text-center text-uppercase">Contact Us</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input class="btn btn-outline-black rounded-1 btn-lg float-right" type="submit" value="Submit">
+             </form>
+            </div>
+        </div>
+    </div>
+
+ {% endblock %}
+ 
