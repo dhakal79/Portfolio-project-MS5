@@ -171,9 +171,9 @@ if 'USE_AWS' in os.environ:
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'dhakalconsultancy'
     AWS_S3_REGION_NAME = 'eu-west-3'
-    AWS_ACCESS_KEY_ID = os.environ.get('AKIAZZAWNIQ54EGO2XMK')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('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')
-    AWS_S3_CUSTOM_DOMAIN = f'{dhakalconsultancy}.s3.amazonaws.com'
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
 # Static and media files
     STATICFILES_STORAGE = 'custom_storages.StaticStorage'
