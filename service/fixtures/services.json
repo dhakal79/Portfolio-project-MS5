@@ -7,7 +7,7 @@
           "blurb":"Design and operation of desalination systems and membrane processes (microfiltration, ultrafiltration and reverse osmosis). ",
           "price":13.99,
           "category":1,
-          "image":"membrane.jpg"
+          "image":"desalination.jpg"
        }
     },
     {
@@ -18,7 +18,7 @@
           "blurb":"graphical user interface of a website, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that website",
           "price":18.44,
           "category":1,
-          "image":"frontend.jpg"
+          "image":"Front-end-Development.jpg"
        }
     }
 ]
