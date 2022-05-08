@@ -9,7 +9,7 @@ from django.db import models
 #    def __str__(self):
 #        return self.email
 
-class CustomerContact(models.Model):
+class Contact(models.Model):
     """ A Model for the contact form """
 
     full_name = models.CharField(max_length=254, null=False, blank=False)

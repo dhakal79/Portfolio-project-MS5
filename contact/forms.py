@@ -8,12 +8,12 @@
 #        fields = '__all__'
 
 from django import forms
-from .models import CustomerContact, NewletterSubscriber
+from .models import Contact, NewletterSubscriber
 
 
 class ContactForm(forms.ModelForm):
     class Meta:
-        model = CustomerContact
+        model = Contact
         fields = '__all__'
 
 

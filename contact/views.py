@@ -38,7 +38,7 @@ def contact(request):
         'form': form
     }
 
-    return render(request, 'customer/contact.html', context)
+    return render(request, 'contact/contact.html', context)
 
 
 def newsletter(request):

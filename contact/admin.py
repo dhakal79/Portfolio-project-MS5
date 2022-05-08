@@ -5,7 +5,7 @@
 #admin.site.register(Contact)
 
 from django.contrib import admin
-from .models import CustomerContact, NewletterSubscriber
+from .models import Contact, NewletterSubscriber
 
 
 # Register your models here.
@@ -24,4 +24,4 @@ class SubscribersAdmin(admin.ModelAdmin):
 
 
 admin.site.register(NewletterSubscriber, SubscribersAdmin)
-admin.site.register(CustomerContact, ContactAdmin)
+admin.site.register(Contact, ContactAdmin)
