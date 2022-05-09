@@ -1,5 +1,5 @@
-
 from django.db import models
+
 
 class Contact(models.Model):
     """ A Model for the contact form """
