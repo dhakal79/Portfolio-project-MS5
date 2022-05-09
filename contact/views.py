@@ -6,7 +6,7 @@ from .forms import ContactForm, NewsletterForm
 
 # Create your views here.
 def contact(request):
-    """ A view to handle the customer contact form """
+    """ A view to handle the user contact form """
 
     form = ContactForm()
 
@@ -26,7 +26,7 @@ def contact(request):
 
 
 def newsletter(request):
-    """ A view to handle the customer newsletter subscription """
+    """ A view to handle the user newsletter subscription """
     form = NewsletterForm()
 
     if request.method == 'POST':
@@ -46,7 +46,7 @@ def newsletter(request):
         'form': form,
     }
 
-    return render(request, 'customer/newsletter.html', context)
+    return render(request, 'contact/newsletter.html', context)
 
 
 def newsletter_unsub(request):
@@ -72,9 +72,9 @@ def newsletter_unsub(request):
         'form': form,
     }
 
-    return render(request, 'customer/newsletter-unsubscribe.html', context)
+    return render(request, 'contact/newsletter-unsubscribe.html', context)
 
 
 def privacy_policy(request):
     """ A view to handle the privacy policy page """
-    return render(request, 'customer/privacy-policy.html')
+    return render(request, 'contact/privacy-policy.html')
