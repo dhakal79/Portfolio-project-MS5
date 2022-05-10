@@ -10,9 +10,11 @@ body {
     font-family: 'Lato';
 }
 #image {
-    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
+   /* background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;*/
+   background: url('/media/homepage_background_cropped.jpg') no-repeat center center;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: 600px;
+    width: 100%;
 }
 
 footer {
