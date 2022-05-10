@@ -80,6 +80,10 @@ footer {
 .message-container{
     padding: 100px;
 }
+.login-2{
+    margin-left: 300px ;
+    margin-right: 200px;
+}
 
 /* Allauth form formatting */
 
