@@ -15,4 +15,13 @@
            "friendly_name": "Front End Development"
        }
    }
+
+   {
+    "pk": 3,
+    "model": "service.category",
+    "fields": {
+        "name": "wash",
+        "friendly_name": "WASH"
+    }
+}
 ]
