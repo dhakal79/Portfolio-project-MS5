@@ -31,5 +31,13 @@
         "name": "backend",
         "friendly_name": "backend"
     }
+},
+{
+    "pk": 4,
+    "model": "service.category",
+    "fields": {
+        "name": "backend",
+        "friendly_name": "backend"
+    }
 }
 ]

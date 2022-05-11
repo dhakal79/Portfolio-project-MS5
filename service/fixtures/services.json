@@ -48,5 +48,17 @@
          "image_url":"https://dhakalconsultancy.s3.eu-west-3.amazonaws.com/media/backend.jpg",
          "image":"backend.jpg"
       }
+   },
+   {
+      "pk":4,
+      "model":"service.service",
+      "fields":{
+         "name":"Backend Development",
+         "blurb":"Back end Development refers to the server side of development where you are primarily",
+         "price":30,
+         "category":2,
+         "image_url":"https://dhakalconsultancy.s3.eu-west-3.amazonaws.com/media/backend.jpg",
+         "image":"backend.jpg"
+      }
    }
 ]
