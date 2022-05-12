@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from .models import Service, Category
+
 
 # Create your views here.
 def all_products(request):
@@ -26,7 +28,6 @@ def all_products(request):
             queries = Q(name__icontains=query) | Q(blurb__icontains=query)
             services = services.filter(queries)
 
-
     context = {
         'services': services,
         'search_term': query,
@@ -46,3 +47,4 @@ def product_detail(request, service_id):
     }
 
     return render(request, 'service/product_detail.html', context)
+
