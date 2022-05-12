@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+{% load calc_subtotal %}
+{% load crispy_forms_tags %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">Checkout</h2>
+            <hr>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <!-- Order summary -->
+            <div class="col-12 col-lg-6 order-lg-last">
+                {% for item in purchase_items %}
+                    <div class="row">
+                        <div class="col-2 mb-1">
+                            <a href="{% url 'product_detail' item.service.pk %}">
+                                {% if item.service.image %}    
+                                    <img class="w-100" src="{{ item.service.image_url }}" alt="{{ item.service.name }}">
+                                {% else %}
+                                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.service.name }}">
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div class="col-7">
+                            <p class="my-0"><strong>{{ item.service.name }}</strong></p>
+                            <p class="my-0 small text-muted"><strong>Qty: {{ item.quantity }}</strong></p>
+                        </div>
+                        <div class="col-3 text-end">
+                            <p class="my-0 small text-muted">€{{ item.service.price | calculate_subtotal:item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <hr class="my-0">
+                <div class="row text-end">
+                    <div class="col-7 offset-2">
+                        <p class="my-0">Order Total:</p>
+                        <p class="my-0">Grand Total:</p>
+                    </div>
+                    <div class="col-3">
+                        <p class="my-0">€{{ total | floatformat:2 }}</p>
+                        <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Checkout form -->
+            <div class="col-12 col-lg-6">
+                <div class="d-none" id="payment-processing">
+                    <h1>Payment processing...</h1>
+                    <h3 class="text-muted">Please don't navigate away from this page.</h3>
+                </div>
+                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset>
+                        {{ order_form.full_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                        {{ order_form.phone_number | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                        {{ order_form.street_address1 | as_crispy_field }}
+                        {{ order_form.street_address2 | as_crispy_field }}
+                        {{ order_form.town_or_city | as_crispy_field }}
+                        {{ order_form.county | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                    </fieldset>
+                    <fieldset>
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <!-- Stripe card element -->
+                        <div class="mb-3" id="card-element"></div>
+                        <!-- Stripe card errors -->
+                        <div class="mb-3 text-danger" id="card-error"></div>
+                        <!-- Pass the client secret to the view to retrieve the payment intent id -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                    </fieldset>
+
+                    <div class="submit-button text-end mt-5 mb-2">
+                        <a href="{% url 'purchase' %}" class="btn btn-outline border">
+                            <span class="icon"><i class="fas fa-chevron-left"></i></span>
+                            <span class="font-weight-bold">Edit Cart</span>
+                        </a>
+                        <button id="submit-button" class="btn btn-black">
+                            <span class="font-weight-bold">Complete Order</span>
+                        </button>
+                        <p class="small text-danger my-0">
+                            <span class="icon"><i class="fas fa-exclamation-circle"></i></span>#
+                            <span>Your card will be charged <strong>€{{ grand_total | floatformat:2 }}</strong></span>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+{% endblock %}
