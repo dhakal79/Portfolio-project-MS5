@@ -6,10 +6,8 @@ from django.conf import settings
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 from service.models import Service
-from cart.contexts import cart_contents
+from purchase.contexts import purchase_contents
 
-import stripe
-import json
 
 
 @require_POST
