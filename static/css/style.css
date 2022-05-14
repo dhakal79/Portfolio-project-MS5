@@ -178,12 +178,13 @@ input[type=text], input[type=email], textarea {
     margin-top: 50px;
 }
 
-
 .signout{
     padding-top: 200px;
     text-align: center;
     font-size: 18px;
 }
+
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
@@ -329,3 +330,48 @@ input[type=text], input[type=email], textarea {
 
   }
 
+  #frontpage {
+    text-align: center;
+    margin-left: 60px;
+    font-size: 20px;
+    width: 90%;
+}
+
+.p-3 {
+    width: 96%;
+}
+
+.btn-group-lg>.btn, .btn-lg {
+    margin-left: 100px;
+}
+.privacy{
+    color: #fff;
+    margin-left: 100px;
+    margin-bottom: 20px;
+}
+
+.login-2 {
+    padding-top: 270px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.col{
+    margin-top: 30px;
+}
+.logo-font {
+    font-size: 22px;
+}
+.text-center {
+    font-size: 20px;
+}
+
+#about{
+    margin-left: 40px;
+}
+#about li{
+    width: 250%;
+}
+#about p{
+    width: 150%;
+}
