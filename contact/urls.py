@@ -7,6 +7,5 @@ urlpatterns = [
     path(
         'newsletter/unsubscribe',
         views.newsletter_unsub,
-        name='newsletter_unsub'),
-    path('privacy-policy', views.privacy_policy, name='privacy_policy'),
+        name='newsletter_unsub'),    
 ]
