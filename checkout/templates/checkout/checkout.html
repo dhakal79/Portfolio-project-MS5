@@ -34,9 +34,7 @@
                             <p class="my-0"><strong>{{ item.service.name }}</strong></p>
                             <p class="my-0 small text-muted"><strong>Qty: {{ item.quantity }}</strong></p>
                         </div>
-                        <div class="col-3 text-end">
-                            <p class="my-0 small text-muted">€{{ item.service.price | calculate_subtotal:item.quantity }}</p>
-                        </div>
+                        
                     </div>
                 {% endfor %}
                 <hr class="my-0">
