@@ -6,6 +6,8 @@ from .models import Service, Category
 from .forms import ProductForm
 
 # Create your views here.
+
+
 def all_products(request):
     """A view to show all products including sorting and search results"""
 
@@ -48,6 +50,7 @@ def product_detail(request, service_id):
 
     return render(request, 'service/product_detail.html', context)
 
+
 @login_required
 def add_product(request):
     """ Add a product to the store """
@@ -66,7 +69,7 @@ def add_product(request):
     else:
         form = ProductForm()
         
-    template = 'products/add_product.html'
+    template = 'service/add_product.html'
     context = {
         'form': form,
     }
@@ -75,13 +78,13 @@ def add_product(request):
 
 
 @login_required
-def edit_product(request, product_id):
+def edit_product(request, service_id):
     """ Edit a product in the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
-    product = get_object_or_404(Product, pk=product_id)
+    service = get_object_or_404(Service, pk=service_id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
         if form.is_valid():
@@ -94,7 +97,7 @@ def edit_product(request, product_id):
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')
 
-    template = 'products/edit_product.html'
+    template = 'service/edit_product.html'
     context = {
         'form': form,
         'product': product,
