@@ -86,28 +86,28 @@ def edit_product(request, service_id):
 
     service = get_object_or_404(Service, pk=service_id)
     if request.method == 'POST':
-        form = ProductForm(request.POST, request.FILES, instance=product)
+        form = ProductForm(request.POST, request.FILES, instance=service)
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully updated product!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('product_detail', args=[service.id]))
         else:
             messages.error(request, 'Failed to update product. Please ensure the form is valid.')
     else:
-        form = ProductForm(instance=product)
-        messages.info(request, f'You are editing {product.name}')
+        form = ProductForm(instance=service)
+        messages.info(request, f'You are editing {service.name}')
 
     template = 'service/edit_product.html'
     context = {
         'form': form,
-        'product': product,
+        'service': service,
     }
 
     return render(request, template, context)
 
 
 @login_required
-def delete_product(request, product_id):
+def delete_product(request, service_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
