@@ -1,5 +1,3 @@
-![Water Channel Blog](images/jartest.jpg)
-
 # Dhakal Consultancy 
 Welcome! 
 ## Introduction
@@ -8,7 +6,7 @@ The global water crisis is a major concern today and will become more severe in 
 The overall aim of Dhakal Consultancy is a full-stack ecommerce web application to sell its services in the field of water treatment, desaliantion, water and sanitation as well as frontend and backend coding applications to customer from entire world.  This project is created as a part of Code Institute's Full Stack Software Development course.
 The admin of the website will have the ability to use all CRUD functionality (Create, Read, Update, Delete).
 
-A live water channel blog can be found [here](https://dhakalconsultancy.herokuapp.com/).
+A live website can be found [here](https://dhakalconsultancy.herokuapp.com/).
 
 ![consultancy website preview](media/readme/media/preview.jpg)
 
@@ -32,14 +30,18 @@ A live water channel blog can be found [here](https://dhakalconsultancy.herokuap
 
  [7. Deployment](#deployment)
 
+ [8. SEO](#seo)
+ [9. Marketing](#marketing)
+ [10. Social Media](#social-media)
+
 [8. Acknowledgement](#acknowledgement)
 
   <a name="dhakal-consultancy"></a>
 
-# 1. About the Water Channel Blog
+# 1. About the Dhakal Consultancy website
   [Go to the top](#table-of-contents)
 
-This water channel blog is desinged as a a platform where water professional and students can share the expereince and ideas to solve the water related issues in the world. It can also be used as a knowledge sharing platform.  
+This consultancy website is desinged as a a platform to sell the expertise in the field of water and full-stack software.  
    <a name="ux"></a>
 # 2. User Expereince (UX) design
   [Go to the top](#table-of-contents)
@@ -218,7 +220,6 @@ The page not found (404) error and server error (500) has been addressed. For bo
 
 # 4. Technologies-used
   [Go to the top](#table-of-contents)
-
 * [Python3](https://en.wikipedia.org/wiki/Python_(programming_language)) was used as a scripting language for the app development in this project.
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) (markup language) was used for structuring and presenting content of the website.
 * [CSS3](https://en.wikipedia.org/wiki/CSS) (Cascading Style Sheets) was used to provide the style to the content written in a HTML.
@@ -230,7 +231,11 @@ The page not found (404) error and server error (500) has been addressed. For bo
 * [Ami](http://ami.responsivedesign.is/) was used to develop a Mockup screenshot generator
 * [Heroku](heroku.com) was used to deploy a final version of the Python Essentials application code.
 * [Bootstrap](https://getbootstrap.com/) to make responsive design much easier due to their "mobile first" design.
-* [Cloudinary](https://cloudinary.com/) was used to store all images uploaded to the website.
+* [PostgreSQL](https://www.postgresql.org/) was used 
+    as a database.
+* [AWS](https://aws.amazon.com/) was used to host all static and media files.
+* [Balsamiq](https://balsamiq.com/) was used to create the wireframes during the design process.
+* [Google Fonts](https://fonts.google.com/) was used to import the font style into the style.css file which is used on all pages throughout the project.
 
 
 <a name="testing"></a>
@@ -238,12 +243,12 @@ The page not found (404) error and server error (500) has been addressed. For bo
 # 5. Testing
   [Go to the top](#table-of-contents)
 ## 5.1 General
-- Throughout the development of the water channel blog I have tested each View, Model and URL together after each one had been written. 
+- Throughout the development process zI have tested each View, Model and URL together after each one had been written. 
 - Any changes made in the models, I performed makemigrations and migrate. In the sametime, code for view.py and urls were also written and run the server to check if there are any issues or not. I checked if the url written directed to the right page that i am expecting or not. 
-- All the pages were manullay tested 
-- All the code written were also validated using W3C validator (for Html), PEP8 online (Python) and Jigsaw (CSS). the details of each testing are summarized below.
-## 5.2 W3C, Jigsaw and PEP8 online validation
-  I have tested manually (for each page of the blog) by passing the code through W3C, JigSaw and PEP8 online validation tool and confirmed there are no errors. The screenshot is as shown below:
+- All the pages of the website were manullay tested 
+- All the code written were also validated using W3C validator (for Html), PEP8 online (Python),Jigsaw (CSS) and JS Hint(Javascript). the details of each testing are summarized below.
+## 5.2 W3C, Jigsaw, JS Hint and PEP8 online validation
+  I have tested manually (for each page of the website) by passing the code through W3C, JigSaw and PEP8 online validation tool and confirmed there are no errors. The screenshot is as shown below:
   for W3C validation (sample example for home page)
   ![W3C validation](media/image/w3c.jpg)
   for CSS validation
@@ -251,6 +256,9 @@ The page not found (404) error and server error (500) has been addressed. For bo
 
   for PEP8 validation
  ![PEP8online validation](media/image/pep8online.jpg)
+   forJS Hint validation
+ ![JS Hint validation](media/image/pep8online.jpg)
+ 
 ## 5.3 Mannual testing 
 
 TEST            | OUTCOME                          | PASS / FAIL  
@@ -276,10 +284,10 @@ Draft post|check if any blog post as draft visible to other users or not.|PASS
 
 <a name="bugs"></a>
 
-# 7. Bugs
+# 6. Bugs
   [Go to the top](#table-of-contents)
 
-## 7.1 Solved bugs
+## 6.1 Solved bugs
 - The update on static css did not show up in webpage after heroku deployment. This was solved by changing below;
 
     In setting.py
@@ -305,28 +313,28 @@ Draft post|check if any blog post as draft visible to other users or not.|PASS
   enctype="multipart/form-data as;
   <form method="POST" enctype="multipart/form-data">
   
-## 7.2 Unsolved bugs
+## 6.2 Unsolved bugs
 Following PEP8 online validation for env.py files is kept as it is. It is related to long character...
 ![PEP8online validation](media/image/pep8-unsolved-bug.jpg)
 
  <a name="deployment"></a>
 
-# 8. Deployment
+# 7. Deployment
   [Go to the top](#table-of-contents)
 
   The project was deployed to GitHub and pushed throughout the devlopment process. The project was also deployed to Heroku in the early stages of development to ensure that there weren't any issues later on in the project. Mannual deploy was selected within Heroku and has been deployed the latest versio/update in the project.
 
-## 8.1 Method of Deployment
-### 8.1.1 Installing Django and supporting libraries
+## 7.1 Method of Deployment
+### 7.1.1 Installing Django and supporting libraries
 - In gitpod terminal, install Django and supporting libraries and create requirement files
 - Create a project "waterchanel" and app "blog" 
 - Add installed app in the setting.py and migrate the chnages 
-### 8.1.1 GitHub Repository
+### 7.1.1 GitHub Repository
 - Set up project GitHub repository and user stories correctly 
 - Ensure all requirements for the project are added to the requirements.txt file prior to deployment. The command **pip3 freeze --local > requirements.txt** was used to run in the terminal to do this.
 - All installed apps are added within setting.py under INSTALLED_APPS
 
-### 8.1.2 Deploying to Heroku app
+### 7.1.2 Deploying to Heroku app
 - Create new Heroku app 
     
 - Added database 
@@ -360,13 +368,42 @@ if os.path.isfile("env.py"):
 
 Note: I followed all the steps mentioned in the Django Blog Cheat Sheet provided by Code Institute.
 
+<a name="seo"></a>
+# 9. SEO
+ [Go to the top](#table-of-contents)
+
+To improve the search engine optimisation (SEO) of the site following actions were taken:
+- Added keywords in a meta tag to my base.html. The keywords were researched using [WordTracker](https://www.wordtracker.com/), there are a number of short-tail and long-tail keywords.
+
+- This is a list of all the keywords I came up with, desalianmtion, ultrafiltration, memebrane, water treatemnt, WASH, frontend developemnt, backend development.
+
+<a name="marketing"></a>
+# 10. Marketing
+ [Go to the top](#table-of-contents)
+
+ For my marketing strategies, I decided to go with content marketing, Social media and email marketing root. As these are free options and very effective for an E-commerce store.
+
+- Content marketing - Posting content that contains blog posts and video tutorials will be my primary source to display content.
+
+- Social media - Using these platforms will help build and interact with customers to build relationships and loyalty. This also helps build the brand. Followers will help share the business posts and in result gain more traction with other people. The same content can be across all social media platforms.
+
+- Email marketing - Using email marking via a newsletter will be beneficial as it is a free source of marketing. Those who are subscribed are more likely to convert into paying customers. This will increase sales and returning customers as I can provide discount codes and other special offers. A good pro is that the business has total control over the design of the emails.
+
+
+<a name="social-media"></a>
+# 11. Social Media
+ [Go to the top](#table-of-contents)
+ A facebook business page was created and is planned to use this platform to promote the business.
+ 
+![facebook_business_page](media/readme/media/facebook%20business%20page.jpg)
+
+
  <a name="acknowledgement"></a>
 
-# 9. Acknowledgement
+# 12. Acknowledgement
   [Go to the top](#table-of-contents)
 
-* Inspired from Hello Django and I think I can blog project from the code institute course
+* Inspired from Project Boutique Adoand from the code institute course
 * Thanks to my mentor Marcel Mulders for his constructive feedback
 * Thanks to the Code Institute tutor support team, who helped me develop my understanding throughout this project.
-* Thanks to Youtube videos and especially to Codemy.com videos on Django projects
 * Text in the blog post were taken from various sources in the internet
