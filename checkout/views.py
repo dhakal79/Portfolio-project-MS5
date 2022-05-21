@@ -6,6 +6,8 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 from purchase.contexts import purchase_contents
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from service.models import Service
 from .forms import OrderForm
 from .models import Order, OrderLineItem
