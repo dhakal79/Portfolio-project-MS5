@@ -3,13 +3,14 @@
 # Dhakal Consultancy 
 Welcome! 
 ## Introduction
-The global water crisis is a major concern today and will become more severe in the coming years. The availability of freshwater becomes more challenging in the semi-arid regions. However, in other areas where freshwater is available(surface and groundwater),contamiantion and degradation of the water quality is a major issue risking the health of millions of people. As per the SDG 6, availability of fresh and safe water for all is a basic necessity for overall human development. Therefore, there is a need of ideas and solutions that can help to provide the clean freshwater to the entire population. 
+The global water crisis is a major concern today and will become more severe in the coming years. The availability of freshwater becomes more challenging in the semi-arid regions. However, in other areas where freshwater is available(surface and groundwater),contamiantion and degradation of the water quality is a major issue risking the health of millions of people. As per the SDG 6, availability of fresh and safe water for all is a basic necessity for overall human development. Therefore, there is a need of experts in this filed who can provide the solutions/ideas instantly/remotely so the action on site can be taken immediately. 
 
-The overall aim of this project is to develop an open access water channel blog with an objective to share the ideas and solutions to address global water issues. All the water practitioner from all over the world (including professional, students) can be a member of the community in this blog. 
+The overall aim of Dhakal Consultancy is a full-stack ecommerce web application to sell its services in the field of water treatment, desaliantion, water and sanitation as well as frontend and backend coding applications to customer from entire world.  This project is created as a part of Code Institute's Full Stack Software Development course.
+The admin of the website will have the ability to use all CRUD functionality (Create, Read, Update, Delete).
 
 A live water channel blog can be found [here](https://dhakalconsultancy.herokuapp.com/).
 
-![blog preview](media/image/blogpreview.jpg)
+![consultancy website preview](media/readme/media/preview.jpg)
 
 # Table of Contents
  [1. About the Dhakal Consultancy](#dhakal-consultancy)
