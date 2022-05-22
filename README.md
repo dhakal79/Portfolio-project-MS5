@@ -16,7 +16,6 @@ A live website can be found [here](https://dhakalconsultancy.herokuapp.com/).
  [2. User Expereince (UX) design](#ux)
   - [Project Goals:](#project-goals)
   - [User Goals:](#user-goals)
-  - [Design thinking:](#user-stories)
   - [Site Skeleten(Wireframe):](#wireframe)
 
   [3. Features](#features)
@@ -90,30 +89,15 @@ Frequent User Goals
 -   Be able to subscribe for newsletter so that I can follow the update of the organization.
 - Be able to unsubscribe for newsletter so that I can stop to follow the update of the organization anytime i wish.
 
-
-  <a name="user-stories"></a>
-## 2.1 Blog Design thinking
-  [Go to the top](#table-of-contents)
-
-The following design thinking were kept in mind while designing this channel. 
-- Register
-- Login and Logout
-- Create Posts
-- Category the post 
-- Article Detailed View
-- Comments
-- Like Posts
-- Edit and Delete Posts (own post)
-
 Three step processes were followed as below:
 - Set the user requirements and added to the user stories within the github project
-![User Stories](media/image/userstories.jpg)
+![User Stories](media/readme/media/userstories.jpg)
 
 - After the gradual fullfilment of the requirements, the stories were moved to in progress column.
-![User Stories](media/image/userstories_progress.jpg)
+![User Stories](media/readme/media/userstories_progress.jpg)
 
 - And finally when requirement was fully met, it was moved to the complete column.
-![User Stories](media/image/userstories_complete.jpg)
+![User Stories](media/readme/media/userstories_complete.jpg)
 
   <a name="wireframe"></a>
 ## 2.2 Site Skeleten (wireframe)
@@ -124,20 +108,19 @@ Three step processes were followed as below:
 ### Home page (MY Water Channel)
 ![wireframe](media/image/wireframe-home.jpg)
 
-### Post detail page 
+### About us 
 ![wireframe](media/image/wireframe-detail.jpg)
 
-### Pagination  
+### Our service 
 ![wireframe](media/image/wireframe-pagination.jpg)
 
-### Post  
+### Latest News 
 ![wireframe](media/image/wireframe-post.jpg)
 
-### Add Category  
+### Contact us 
 ![wireframe](media/image/wireframe-category.jpg)
 
  <a name="features"></a>
-
 
 # 3. Features
   [Go to the top](#table-of-contents)
@@ -147,33 +130,33 @@ Three step processes were followed as below:
 ## 3.1 Existing Feature
 
 ### 3.1.1 Navigation bar:
-Water Channel has naviagation bar that includes; 
-- My water channel (Home page)
-- Register
-- Login 
-- Categories 
+Dhakal consultancy has naviagation bar that includes; 
+- Home page
+- About us
+- Our services 
+- Latest news
+- contact us 
+- My account 
+- Purchase bag 
 
 Any users have an ability to view the home page, page detail view, register in the webpage and login as registered user.
-![Nav bar](media/image/navbar-1.jpg)
+![Nav bar](media/readme/media/nav-bar.jpg)
 
-Once the users are registered and login in the page the naviagation bar has more functionality such as; add post, define categories of the post, edit/delete the post(only own post) and finally like the posts.
-
- ![Nav bar](media/image/navbar-2.jpg)
-
-- Social media links (for facebook, Linkden, Twitter and Youtube) are placed at the bottom of the each page in the footer. All the links will open in a new tab. 
+- Link for Social media(facebook) and newsletter subscription are placed at the bottom of the each page in the footer. 
+![footer](media/readme/media/footer.jpg)
 
 
 ### 3.1.2 Django admistration page
 
-The admin page is created where the admin has the ability right to the all functionality of the blog. For any new post admin should write title, slug (automatically populated), category of the post, author name (admin), attached image, add contet of the blog and finally published. 
+The admin page is created where the admin has the ability right to the all CRUD functionality of the website. 
 
 ![Nav bar](media/image/django-admin.jpg)
 
-### 3.1.3 Home Page (My water channel)
+### 3.1.3 Home Page 
 
-The channel has homepage where it listed the summary of recent posts. In the home page the post will appear with its title and short text (max 200) and picture. For detail view of the post, user can click on the more... and then it will redirect to the detail page.
+The website has homepage with the image and a button for the services. The users can click on the button to explore the possible service provided by the consultancy.The page also contains the footer with facebook business page link , newsletter subscription and contact us as well as option to login and logout.
 
-![Home Page](media/image/home-page-1.jpg)
+![Home Page](media/readme/media/home-page.jpg)
 
 Home page is design with functionality of pagination. Each page shows maximum of 6 recent posts. In order to view other older posts  there is NEXT button at the bottom of page, which will redirect to the next page.  The next page also has the button " PREVIOUS" which will redirect to the previous page of the blog.
 At the bottom of the page there is a link to the social media where the users can connect to the admin social media page.
