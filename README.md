@@ -158,11 +158,6 @@ The website has homepage with the image and a button for the services. The users
 
 ![Home Page](media/readme/media/home-page.jpg)
 
-Home page is design with functionality of pagination. Each page shows maximum of 6 recent posts. In order to view other older posts  there is NEXT button at the bottom of page, which will redirect to the next page.  The next page also has the button " PREVIOUS" which will redirect to the previous page of the blog.
-At the bottom of the page there is a link to the social media where the users can connect to the admin social media page.
-
-![Home Page](media/image/home-page-2.jpg)
-
 ### 3.1.4 Login and Register
 
 The user is able to register, login and logout. The blog has a new view or form to allow the user to login, logout or register. The users have an full access to post/edit/update/delate the post once they register and login.
