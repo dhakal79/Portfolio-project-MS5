@@ -160,8 +160,31 @@ The website has homepage with the image and a button for the services. The users
 
 ### 3.1.4 Login and Register
 
-The user is able to register, login and logout. The blog has a new view or form to allow the user to login, logout or register. The users have an full access to post/edit/update/delate the post once they register and login.
+The site user is able to register, login and logout. Once they register and login they have an access to create a profile for future.
 
+![Login Page](media/readme/media/login.jpg)
+
+### 3.1.5 About
+
+The site has the tab "about" where the user can read about the consultancy in general. 
+![About Page](media/readme/media/about.jpg)
+
+### 3.1.6 Services
+
+The site has the tab "services" where the users can see what the service available in Dhakal Consultancy. It shows with the picture, title of the serice and unit hour cost. By clicking the picture, the user is redirected to the detail page of the service. 
+
+![service](media/readme/media/services.jpg)
+
+### 3.1.7 Detail services
+
+The detail page of the service provide the detail activities about the service, and an option to select the number of hours of the service. Once the service is selected, the produce can be added to the purchase list by clicking the buttom add to purchase. There is also an option for keep shoping if the user wants to get more service.
+![service-detail](media/readme/media/services-detail.jpg)
+
+Once it is clicked the product is added to the purchase bag.
+
+![purchase-bag](media/readme/media/purchase-bag.jpg)
+
+ The page also has an option site has the tab "services" where the users can see what the service available in Dhakal Consultancy. It shows with the picture, title of the serice and unit hour cost. By clicking the picture, the user is redirected to the detail page of the service. 
 
 ### 3.1.5 Comment the post
 
