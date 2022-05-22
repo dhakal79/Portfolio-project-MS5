@@ -14,6 +14,7 @@ A live website can be found [here](https://dhakalconsultancy.herokuapp.com/).
  [1. About the Dhakal Consultancy](#dhakal-consultancy)
 
  [2. User Expereince (UX) design](#ux)
+  - [Project Goals:](#project-goals)
   - [User Goals:](#user-goals)
   - [Design thinking:](#user-stories)
   - [Site Skeleten(Wireframe):](#wireframe)
@@ -54,11 +55,41 @@ The following users types can be benifitted from the blog:
 - Students in field of water.
 - University/institution who can consider the platform for thier educational activities.
 
-   <a name="user-goals"></a>
-## 2.1 User Goals
+   <a name="project-goals"></a>
+## 2.1 Project Goals
   [Go to the top](#table-of-contents)
 
-The main goal of this project is to develop a user friendly water channel blog. This blog is of great important to me as I have planned to use the blog for the active particiaption/discussion among the students in the class.
+The main goal of this project is to develop a full-stack ecommerce web application to sell consultancy services in the field of water treatment, desaliantion, water and sanitation as well as frontend and backend coding applications to customer from entire world.  
+
+   <a name="user-goals"></a>
+## 2.2 User Goals
+  [Go to the top](#table-of-contents)
+
+First Time Visitor Goals
+
+-  Be able to see some information about the consultancy so that he/she knows the background and history of the company.
+- Be able to view the list of available services so that he/she can select the service that they are interested for
+- Be able to easily view the details about the service so that he/she can can decide whether to take the service or not.
+
+- Option to search for a service available by name or description so that he/she can find a specific service that I am interested on.
+- Be able to easily add service items to my purchase basket so that he/she can view all the services that are interested for 
+
+- Be able to easily remove items and update quantities of service from my purchase service list so that he/she can remove any services that is not of interest from the list.
+- Be able to select the the number of service hours of a service when selecting the particular service so that he/she can select the service with actual hours interested in.
+- Be able to easily enter my payment information at the checkout page so that he/she can checkout with no hassles.
+- Be able to receive an email confirmation after completing the checkout process so that he/she can have the proof of payment for the service requested.
+- Be able to see a contact page where i can write my details and questions so that I can send any query and make an appointment to discuss about the service.
+
+Returning Visitor Goals
+- Be able to easily register an account so that he/she can have a personal account and be able to view profile.
+- Be able to receive an email confirmation after registering so that I can verify that my account registration is successful.
+- Be able to easily login or logout so that he/she can access his/her personal account information.
+- Be able to easily reset my password in case I forget it so that I can have an access to my account.
+
+Frequent User Goals
+-   Be able to subscribe for newsletter so that I can follow the update of the organization.
+- Be able to unsubscribe for newsletter so that I can stop to follow the update of the organization anytime i wish.
+
 
   <a name="user-stories"></a>
 ## 2.1 Blog Design thinking
@@ -394,7 +425,7 @@ To improve the search engine optimisation (SEO) of the site following actions we
 # 11. Social Media
  [Go to the top](#table-of-contents)
  A facebook business page was created and is planned to use this platform to promote the business.
- 
+
 ![facebook_business_page](media/readme/media/facebook%20business%20page.jpg)
 
 
