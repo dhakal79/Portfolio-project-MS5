@@ -1,1 +1,0 @@
-Dhakal Consultancy confirmation for order number {{ order.order_nubmer }}
