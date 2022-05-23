@@ -217,11 +217,7 @@ The user also has an option to sigout
 <a name="future-feature"></a>
 ## Future Features
 
-- Profile page to be included that describes the bio and profile picture or the post author.
-- Automatically populate the username instead of adding name to comment form.
-- Add forget user name and password
-- Add search button on nav bar 
-- Add text editor in the add page content like what we have in admin add post page.
+
 
 <a name="technologies-used"></a>
 
@@ -250,7 +246,7 @@ The user also has an option to sigout
 # 5. Testing
   [Go to the top](#table-of-contents)
 ## 5.1 General
-- Throughout the development process zI have tested each View, Model and URL together after each one had been written. 
+- Throughout the development process I have tested each View, Model and URL together after each one had been written. 
 - Any changes made in the models, I performed makemigrations and migrate. In the sametime, code for view.py and urls were also written and run the server to check if there are any issues or not. I checked if the url written directed to the right page that i am expecting or not. 
 - All the pages of the website were manullay tested 
 - All the code written were also validated using W3C validator (for Html), PEP8 online (Python),Jigsaw (CSS) and JS Hint(Javascript). the details of each testing are summarized below.
@@ -266,11 +262,17 @@ The user also has an option to sigout
    forJS Hint validation
  ![JS Hint validation](media/image/pep8online.jpg)
  
-## 5.3 Mannual testing 
+
+## 5.3 Responsive Tools
+I used [Am I Responsive](http://ami.responsivedesign.is) to make sure that all my pages are responsive to all devices.
+
+## 5.4 Mannual testing 
+I have tested my site using multiple devices.
+Please find below my testing process for all pages via mobile and web:
 
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
-Water Channel(Home page) | checked if on click to "Water Channel", the browser redirects me to the Water Channel "home page".| PASS
+Home page | checked if on click to "Home", the browser redirects me to Dhakal Consultancy "home page".| PASS
 Water Channel(Home page) | checked if recent posted blog appear on the the front page of home page or not.| PASS
 Pagination | checked if there appears 6 blog posts in "Water Channel" home page or not. And after clicking to the button NEXT goes to the other pages where other additional blog posts appears and vice versa.| PASS
 Detail page | checked if by clicking "more...." on home page of each blog post redirect to the detail page or not.| PASS
