@@ -207,6 +207,12 @@ Once you click submit button the the entered email address will be saved and a c
 The website also has an option to unsubscribe to the newsletter as shown below;
 ![unsubscribe](media/readme/media/unsubscribe.jpg)
 
+### 3.1.10 Sign up Page
+The website has a simple signup form that requires the user to enter a unique email address and a password. The password must be entered again for confirmation, this must match the already entered password above. Once he/she entered the email address and password and click sign in, a successful message appears and if the email address is already registered the user receive an error message... In that case, he/she can registered using sign in.
+![sign-in](media/readme/media/sign-in.jpg)
+
+The user also has an option to sigout 
+![sign-out](media/readme/media/logout.jpg)
 
 <a name="future-feature"></a>
 ## Future Features
