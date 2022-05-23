@@ -59,7 +59,7 @@
                                 </div>
                             {% endif %}
                             <div class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
+                                <p class="mt-3"><strong>Number of hours:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -71,7 +71,7 @@
                                             </button>
                                         </div>
                                         <input class="form-control qty_input" type="number"
-                                            name="quantity" value="1" min="1" max="99"
+                                            name="quantity" value="1" min="1" max="1000"
                                             data-item_id="{{ service.id }}"
                                             id="id_qty_{{ service.id }}">
                                         <div class="input-group-append">
@@ -91,9 +91,9 @@
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
-                                    <span class="text-uppercase">Keep Shopping</span>
+                                    <span class="text-uppercase">Back</span>
                                 </a>
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to purchase">
+                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Take a service">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             {% endwith %}
