@@ -150,7 +150,7 @@ Any users have an ability to view the home page, page detail view, register in t
 
 The admin page is created where the admin has the ability right to the all CRUD functionality of the website. 
 
-![Nav bar](media/image/django-admin.jpg)
+![admin-page](media/readme/media/admin.jpg)
 
 ### 3.1.3 Home Page 
 
@@ -175,17 +175,22 @@ The site has the tab "services" where the users can see what the service availab
 
 ![service](media/readme/media/services.jpg)
 
-### 3.1.7 Detail services
+### 3.1.7 Detail page for services
 
 The detail page of the service provide the detail activities about the service, and an option to select the number of hours of the service. Once the service is selected, the produce can be added to the purchase list by clicking the buttom add to purchase. There is also an option for keep shoping if the user wants to get more service.
 ![service-detail](media/readme/media/services-detail.jpg)
 
-Once it is clicked the product is added to the purchase bag.
+Once it is clicked the product is added to the purchase bag where it is listed the service purchase and the total cost.
 
 ![purchase-bag](media/readme/media/purchase-bag.jpg)
 
  The page also has an option site has the tab "services" where the users can see what the service available in Dhakal Consultancy. It shows with the picture, title of the serice and unit hour cost. By clicking the picture, the user is redirected to the detail page of the service. 
 
+After adding to the purchase bag and once the user is ready he/she can click on "go to secure checkout". it will then redired to the page below where user can view the details of purchase order. 
+![secure-check-out](media/readme/media/secure-check-out.jpg)
+
+Once he/she is sure then it can be clicked to checkout button which will lead to the page below.
+![secure-check-out](media/readme/media/secure-check-out.jpg)
 ### 3.1.5 Comment the post
 
 The registered Users is allowed to make comemnt on the blog post detail view page and is only possible when they logged in the blog site. 
