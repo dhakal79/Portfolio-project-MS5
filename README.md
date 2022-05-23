@@ -189,34 +189,25 @@ Once it is clicked the product is added to the purchase bag where it is listed t
 After adding to the purchase bag and once the user is ready he/she can click on "go to secure checkout". it will then redired to the page below where user can view the details of purchase order. 
 ![secure-check-out](media/readme/media/secure-check-out.jpg)
 
-Once he/she is sure then it can be clicked to checkout button which will lead to the page below.
-![secure-check-out](media/readme/media/secure-check-out.jpg)
-### 3.1.5 Comment the post
+Once he/she is sure about the service then he/she can be click to checkout button which will lead to the payment page as below.
+![secure-check-out](media/readme/media/checkout-payment.jpg)
 
-The registered Users is allowed to make comemnt on the blog post detail view page and is only possible when they logged in the blog site. 
+### 3.1.8 Contact us
+The site has a nav bar "contact us" and also included at the buttom in the footer. The user can send a message and request an appointment for further discussion through this contact us page.
 
-![Comment Page](media/image/comment.jpg)
+![contact-us](media/readme/media/contact-us.jpg)
 
-The user can write a comment about the blog by clicking on "please provide comments". The name, date and time of comments will appear on the comment box.
+### 3.1.9 Newsletter subscription
+The site users has an option to subscribe the news. They can enter the email address and click right arrow bar at the bottom of the page, then it will redirect to the page to make confimation as below 
+![contact-us](media/readme/media/newletter-subscription.jpg)
 
-![Home Page](media/image/add-comment.jpg)
+Once you click submit button the the entered email address will be saved and a confirmation email will be send to the email address as below 
+![contact-us](media/readme/media/success-message.jpg)
 
-## 3.1.6 Like the post
 
-Registered users are able to like post of theirs and other user's post but only when they are logged in. The total number of likes will be recorded on the post. This provides an opportuntiy to know how popular is the blog post. 
 
-![Like Page](media/image/like-post.jpg)
 
-### 3.1.7 Add Post in webbrowser
-
-Registered Users are able to create their own posts within the app but only when logged in. They can do this from the Add Post button within the navbar
-
-Each post is automatically stamped with the date of when the posts were uploaded.
-
-Once the new post is added in the blog channel, a flash message "The new blog post has been added" will appear in the Home page.
-![Flash message](media/image/flash.jpg)
-
-### 3.1.8 Edit and Delete Post
+### 3.1.8 Edit and Delete purchase list 
 
 Registered users are able to edit their own posts within the blog but only when they are logged in.
 
