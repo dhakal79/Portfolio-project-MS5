@@ -197,43 +197,16 @@ The site has a nav bar "contact us" and also included at the buttom in the foote
 
 ![contact-us](media/readme/media/contact-us.jpg)
 
-### 3.1.9 Newsletter subscription
+### 3.1.9 Newsletter subscription/unsubscription
 The site users has an option to subscribe the news. They can enter the email address and click right arrow bar at the bottom of the page, then it will redirect to the page to make confimation as below 
-![contact-us](media/readme/media/newletter-subscription.jpg)
+![subscription](media/readme/media/newletter-subscription.jpg)
 
 Once you click submit button the the entered email address will be saved and a confirmation email will be send to the email address as below 
-![contact-us](media/readme/media/success-message.jpg)
+![success-message](media/readme/media/success-message.jpg)
 
+The website also has an option to unsubscribe to the newsletter as shown below;
+![unsubscribe](media/readme/media/unsubscribe.jpg)
 
-
-
-### 3.1.8 Edit and Delete purchase list 
-
-Registered users are able to edit their own posts within the blog but only when they are logged in.
-
-![Edit Page](media/image/edit.jpg)
-
-They can also delete their own post
-
-![Delete Page](media/image/delete.jpg)
-When a user is not registered or logged in they are not shown the "Edit Post" or "Delete Post" buttons.
-
-Here is an example when registered as differnt user, one can view the post but the option of edit and delete is disappear as these post is of admin.
-
-![edit/delete Page](media/image/edit-post.jpg)
-
-### 3.1.9 Add Categories of the post
-
-Each post is given a category by choosing from the scroll down menu when creating a post. Each post is then added to the corresponding category list enabling the user to choose a category and view all posts within.
-
-There is also a dropdown menu within the navbar to allow the user to choose a category to view from the homepage.
-Here is one example of post under category "drinking water"
-![Category Page](media/image/category.jpg)
-
-### 3.1.10 Error page 404 and 500
-The page not found (404) error and server error (500) has been addressed. For both cases, a pop up message and asked to redirect to home page appears. 
-
-![404 error](media/image/error_404.jpg)
 
 <a name="future-feature"></a>
 ## Future Features
