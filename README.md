@@ -273,22 +273,21 @@ Please find below my testing process for all pages via mobile and web:
 TEST            | OUTCOME                          | PASS / FAIL  
 --------------- | -------------------------------- | ---------------
 Home page | checked if on click to "Home", the browser redirects me to Dhakal Consultancy "home page".| PASS
-Water Channel(Home page) | checked if recent posted blog appear on the the front page of home page or not.| PASS
-Pagination | checked if there appears 6 blog posts in "Water Channel" home page or not. And after clicking to the button NEXT goes to the other pages where other additional blog posts appears and vice versa.| PASS
-Detail page | checked if by clicking "more...." on home page of each blog post redirect to the detail page or not.| PASS
-Detail page| checked if button "back" in detail page redirect to home page or not.| PASS
-Post like| checked if registered user can like to blog post or not and count the number of likes.| PASS
-Comment | checked if registered user after clicking on "please provide comment" redirect to comment form page or not.| PASS
-Comment | checked if after clicking to add comment, the page redirect to the correcting detail blog page with name of blog user who commented and date when he/she made the comment.| PASS
-Register/login|checked if users can register and login in the blog or not".| PASS
-Edit/Delete post |checked if the post can be edited and deleted by the authorized resitered user only or not.The users can edit and delete their own post only| PASS
-Catergory | checked if on click to each "Category", the browser redirects me to the the respective category page.| PASS
-Add category| checked if register user can add additional new category to the blog post and after addition new category appears as new category in the nav bar.|PASS 
-Social media links|checked if social media links provided in the footer open in the separate page.|PASS
+NAV bar | checked when click to NAV bar redirect to each individual page or not| PASS
+All services | checked when clicking our serives in NAV bar and services button in the homepage picture redirect to the list of services available.| PASS
+Service detail page | checked when clicked to individual service picture redirect to the detail page where it describes details about the service.| PASS
+Registration| Checked when clicking to the "register" in the nav bar, the browser redirects to the register page or not. | PASS
+Login/Logout| Checked when clicking to the "login" or "logout in the navigation bar, the browser redirects to the login or logout page or not. | PASS
+Purchase basket| Checked when selecting number of quanity and services, the selected service with the total price appears in the purchase basket or not. | PASS
+Check out| Checked when clicking to secure check out it redirected to the checkout page with detail information or not. | PASS
+Payment| Checked when clicking to check out it redirected to the the payment detail page where he/she can provide payment information | PASS
+Search bar|When searching for a keyword, the results will show services that contain the keyword in the service name or description.|PASS
+Subscribe to newsletter|When filling out the newsletter form in the navigation bar from the footer, the browser redirects to the home page if the form was completed successfully. The web page also shows me a success message.| PASS 
+Unsubscribe to newsletter page | When clicking the "unsubscribe" link in the footer, the browser redirects me to the newsletter unsubscribe page.| PASS
+Contact Us page | When clicking the "contact us" link in the footer/nav bar, the browser redirects me to the contact page.| PASS
+Privacy policy page | When clicking the "Privacy policy" link in the footer, the browser redirects to the privacy policy page. | PASS
+Facebook | When clicking the Facebook icon, a new tab opens and redirects to the Facebook business website. | PASS
 Responsive design|Checked if the design is responsive to differnt media size or  not.|PASS
-Error page 404/500|Check if the issue of error page 404/500 is solved or not.| PASS
-Flash message notification|check if once the user post in the blog an automatic flash message " the new blog post has been added" will appear on the home page or not.|PASS
-Draft post|check if any blog post as draft visible to other users or not.|PASS
 
 
 <a name="bugs"></a>
