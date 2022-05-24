@@ -1,0 +1,27 @@
+Hello {{ order.full_name }},
+
+Thank you for your purchase!
+
+This is a confirmation of your order at SteakOut.
+
+Your order information is below:
+
+Order Details:
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: €{{ order.order_total }}
+
+Shipping Details:
+{{ order.street_address1 }}
+{{ order.town_or_city }}
+{{ order.postcode }}
+{{ order.county }}
+
+If you have any questions, please contact us at {{ contact.email }}
+
+Again, thank you for your order!
+
+Sincerely,
+
+Dhakal Consultancy
