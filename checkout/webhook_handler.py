@@ -47,7 +47,7 @@ class StripeWH_Handler:
         """
         intent = event.data.object
         pid = intent.id
-        bag = intent.metadata.bag
+        purchase = intent.metadata.purchase
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
@@ -74,7 +74,7 @@ class StripeWH_Handler:
                     street_address2__iexact=shipping_details.address.line2,
                     county__iexact=shipping_details.address.state,
                     grand_total=grand_total,
-                    original_bag=bag,
+                    original_purchase=purchase,
                     stripe_pid=pid,
                 )
                 order_exists = True
@@ -100,10 +100,10 @@ class StripeWH_Handler:
                     street_address1=shipping_details.address.line1,
                     street_address2=shipping_details.address.line2,
                     county=shipping_details.address.state,
-                    original_bag=bag,
+                    original_purchase=purchase,
                     stripe_pid=pid,
                 )
-                for item_id, item_data in json.loads(bag).items():
+                for item_id, item_data in json.loads(purchase).items():
                     service = Service.objects.get(id=item_id)
                     if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
