@@ -54,7 +54,7 @@ def add_post(request):
 
 
 @user_passes_test(lambda u: u.is_superuser)
-def edit_post(request, year, month, post):
+def edit_post(request, year, month, day, hour, minute, post):
     """
     A view to to display and submit forms to allow
     the super user to edit existing posts
