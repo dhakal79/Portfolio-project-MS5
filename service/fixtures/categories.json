@@ -33,11 +33,11 @@
     }
 },
 {
-    "pk": 4,
+    "pk": 5,
     "model": "service.category",
     "fields": {
-        "name": "backend",
-        "friendly_name": "backend"
+        "name": "watertreatment",
+        "friendly_name": "watertreatment"
     }
 }
 ]
