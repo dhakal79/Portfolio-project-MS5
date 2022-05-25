@@ -6,11 +6,11 @@ from .forms import CreatePostForm, EditPostForm
 
 def news_list(request):
     """
-    A view to display the blog template.
+    A view to display the post template.
     """
     posts = Post.objects.all()
 
-    template = "post/post.html"
+    template = "blog/post.html"
     context = {
         "posts": posts
     }
@@ -21,7 +21,7 @@ def news_list(request):
 def news_post(request, year, month, post):
     """
     A view to render an individual page for each
-    blog post in the database.
+    post in the database.
     """
     post = get_object_or_404(Post, slug=post, publish__year=year,
                              publish__month=month)
@@ -37,7 +37,7 @@ def news_post(request, year, month, post):
 def add_post(request):
     """
     A view to display the form allowing super
-    users to create new blog posts
+    users to create new posts
     """
     if request.method == "POST":
         form = CreatePostForm(request.POST)
@@ -49,7 +49,7 @@ def add_post(request):
             return render(request, "post/news_post.html", {"post": new_post})
     else:
         form = CreatePostForm()
-    return render(request, "post/new_post.html", {"form": form})
+    return render(request, "blog/new_post.html", {"form": form})
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -64,19 +64,19 @@ def edit_post(request, year, month, post):
         form = EditPostForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
-            return render(request, "post/news_post.html", {"post": post})
+            return render(request, "blog/news_post.html", {"post": post})
     else:
         data = {"title": post.title, "body": post.body}
         form = EditPostForm(initial=data)
-    return render(request, "post/edit_post.html", {"form": form})
+    return render(request, "blog/edit_post.html", {"form": form})
 
 
 @user_passes_test(lambda u: u.is_superuser)
 def delete_post(request, year, month, post):
     """
-    A view to allow the super user to delete blog posts
+    A view to allow the super user to delete posts
     """
     post = get_object_or_404(Post, slug=post, publish__year=year,
                              publish__month=month)
     post.delete()
-    return redirect(reverse("post"))
+    return redirect(reverse("blog"))
