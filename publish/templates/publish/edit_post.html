@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col">
             <hr>
-            <h2 class="logo-font mb-4">Create new post</h2>
+            <h2 class="logo-font mb-4">Edit news post</h2>
             <hr>
         </div>
     </div>
@@ -18,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-8">
-                <form action="{% url 'add_post' %}" method="POST" id="new-post-form">
+                <form action="{{ post.get_edit_url }}" method="POST" id="edit-post-form">
                     {% csrf_token %}
                     <fieldset>
                         {{ form.title | as_crispy_field }}
@@ -26,12 +26,12 @@
                     </fieldset>
 
                     <div class="submit-button text-end mt-5 mb-2">
-                        <a href="{% url 'post' %}" class="btn btn-outline border">
+                        <a href="{% url 'publish' %}" class="btn btn-outline border">
                             <span class="icon"><i class="fas fa-chevron-left"></i></span>
                             <span class="font-weight-bold">Go Back</span>
                         </a>
                         <button id="submit-button" class="btn btn-black">
-                            <span class="font-weight-bold">Create Post</span>
+                            <span class="font-weight-bold">Edit Post</span>
                         </button>
                     </div>
                 </form>

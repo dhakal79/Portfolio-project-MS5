@@ -10,7 +10,7 @@ def news_list(request):
     """
     posts = Post.objects.all()
 
-    template = "blog/post.html"
+    template = "publish/post.html"
     context = {
         "posts": posts
     }
@@ -25,7 +25,7 @@ def news_post(request, year, month, post):
     """
     post = get_object_or_404(Post, slug=post, publish__year=year,
                              publish__month=month)
-    template = "post/news_post.html"
+    template = "publish/news_post.html"
     context = {
         "post": post
     }
@@ -46,10 +46,10 @@ def add_post(request):
             new_post.author = request.user
             new_post.slug = new_post.title.lower().replace(" ", "-")
             new_post = form.save()
-            return render(request, "post/news_post.html", {"post": new_post})
+            return render(request, "publish/news_post.html", {"post": new_post})
     else:
         form = CreatePostForm()
-    return render(request, "blog/new_post.html", {"form": form})
+    return render(request, "publish/new_post.html", {"form": form})
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -64,11 +64,11 @@ def edit_post(request, year, month, post):
         form = EditPostForm(request.POST, instance=post)
         if form.is_valid():
             form.save()
-            return render(request, "blog/news_post.html", {"post": post})
+            return render(request, "publish/news_post.html", {"post": post})
     else:
         data = {"title": post.title, "body": post.body}
         form = EditPostForm(initial=data)
-    return render(request, "blog/edit_post.html", {"form": form})
+    return render(request, "publish/edit_post.html", {"form": form})
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -79,4 +79,4 @@ def delete_post(request, year, month, post):
     post = get_object_or_404(Post, slug=post, publish__year=year,
                              publish__month=month)
     post.delete()
-    return redirect(reverse("blog"))
+    return redirect(reverse("publish"))

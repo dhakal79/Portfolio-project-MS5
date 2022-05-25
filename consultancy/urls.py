@@ -28,7 +28,7 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('about/', include('about.urls')),
     path('contact/', include('contact.urls')),
-    path('blog/', include('blog.urls')),
+    path('publish/', include('publish.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'home.views.error_404'
