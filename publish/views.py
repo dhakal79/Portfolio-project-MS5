@@ -6,7 +6,7 @@ from .forms import CreatePostForm, EditPostForm
 
 def news_list(request):
     """
-    A view to display the post template.
+    A view to display the publish template.
     """
     posts = Post.objects.all()
 
@@ -18,13 +18,14 @@ def news_list(request):
     return render(request, template, context)
 
 
-def news_post(request, year, month, post):
+def news_post(request, year, month, day, hour, minute, post):
     """
     A view to render an individual page for each
     post in the database.
     """
     post = get_object_or_404(Post, slug=post, publish__year=year,
-                             publish__month=month)
+                             publish__month=month, publish__day=day,
+                             publish__hour=hour, publish__minute=minute)
     template = "publish/news_post.html"
     context = {
         "post": post
@@ -59,7 +60,8 @@ def edit_post(request, year, month, post):
     the super user to edit existing posts
     """
     post = get_object_or_404(Post, slug=post, publish__year=year,
-                             publish__month=month)
+                             publish__month=month, publish__day=day,
+                             publish__hour=hour, publish__minute=minute)
     if request.method == "POST":
         form = EditPostForm(request.POST, instance=post)
         if form.is_valid():
@@ -72,7 +74,7 @@ def edit_post(request, year, month, post):
 
 
 @user_passes_test(lambda u: u.is_superuser)
-def delete_post(request, year, month, post):
+def delete_post(request, year, month, day, hour, minute, post):
     """
     A view to allow the super user to delete posts
     """

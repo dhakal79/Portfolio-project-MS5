@@ -19,18 +19,21 @@ class Post(models.Model):
     def __str__(self):
         return self.title + ' |' + str(self.author)
 
-    def get_absolute_url(self):
-        return reverse('news_post')
-
-
+    
     def get_absolute_url(self):
         return reverse("news_post",
-                       args=[self.publish.year, self.publish.month,self.publish.day])
-
+                       args=[self.publish.year, self.publish.month,
+                             self.publish.day, self.publish.hour,
+                             self.publish.minute, self.slug])
+    
     def get_edit_url(self):
         return reverse("edit_post",
-                       args=[self.publish.year, self.publish.month,self.publish.day])
+                       args=[self.publish.year, self.publish.month,
+                             self.publish.day, self.publish.hour,
+                             self.publish.minute, self.slug])
 
     def get_delete_url(self):
         return reverse("delete_post",
-                       args=[self.publish.year, self.publish.month,self.publish.day])
+                       args=[self.publish.year, self.publish.month,
+                             self.publish.day, self.publish.hour,
+                             self.publish.minute, self.slug])
