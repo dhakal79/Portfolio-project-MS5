@@ -22,7 +22,7 @@ def purchase_contents(request):
         })
 
     grand_total = total
-    
+
     context = {
         'purchase_items': purchase_items,
         'total': total,

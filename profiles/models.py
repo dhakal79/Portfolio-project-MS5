@@ -34,5 +34,4 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     try:
         instance.userprofile.save()
     except ObjectDoesNotExist:
-       UserProfile.objects.create(user=instance) 
-        
+        UserProfile.objects.create(user=instance)

@@ -7,4 +7,3 @@ urlpatterns = [
     path('adjust/<item_id>/', views.adjust_purchase, name='adjust_purchase'),
     path('remove/<item_id>/', views.remove_from_purchase, name='remove_from_purchase'),
 ]
-

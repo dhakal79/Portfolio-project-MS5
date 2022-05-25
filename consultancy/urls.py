@@ -28,7 +28,7 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('about/', include('about.urls')),
     path('contact/', include('contact.urls')),
-    path('publish/', include('publish.urls')),        
+    path('publish/', include('publish.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = "consultancy.views.page_not_found_view"

@@ -14,18 +14,17 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        ordering = ["-publish",]
+        ordering = ["-publish", ]
 
     def __str__(self):
         return self.title + ' |' + str(self.author)
 
-    
     def get_absolute_url(self):
         return reverse("news_post",
                        args=[self.publish.year, self.publish.month,
                              self.publish.day, self.publish.hour,
                              self.publish.minute, self.slug])
-    
+
     def get_edit_url(self):
         return reverse("edit_post",
                        args=[self.publish.year, self.publish.month,
