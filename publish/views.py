@@ -10,7 +10,7 @@ def news_list(request):
     """
     posts = Post.objects.all()
 
-    template = "publish/post.html"
+    template = "publish/publish.html"
     context = {
         "posts": posts
     }
