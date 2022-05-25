@@ -50,7 +50,7 @@
       }
    },
    {
-      "pk":4,
+      "pk":5,
       "model":"service.service",
       "fields":{
          "name":"Water Treatment",
@@ -62,15 +62,39 @@
       }
    },
    {
-      "pk":4,
+      "pk":6,
       "model":"service.service",
       "fields":{
          "name":"Proposal writing",
          "blurb":"We specialized on writing winning research proposal in the field of WASH, water treatment(conventional and membrane based)",
          "price":40,
-         "category":1,
+         "category":4,
          "image_url":"https://dhakalconsultancy.s3.eu-west-3.amazonaws.com/media/backend.jpg",
          "image":"proposal.jpg"
+      }
+   },
+   {
+      "pk":7,
+      "model":"service.service",
+      "fields":{
+         "name":"Water quality monitoring",
+         "blurb":"We specialized on differnt methods for water quality monitoring in surface, ground and seawater",
+         "price":40,
+         "category":1,
+         "image_url":"https://dhakalconsultancy.s3.eu-west-3.amazonaws.com/media/backend.jpg",
+         "image":"waterquality.jpg"
+      }
+   },
+   {
+      "pk":7,
+      "model":"service.service",
+      "fields":{
+         "name":"Advisory services",
+         "blurb":"We specialized on providing and advise to the issues related to the operation of surface, ground, seawater treatment plant using conventional and membrane based technologies. ",
+         "price":40,
+         "category":1,
+         "image_url":"https://dhakalconsultancy.s3.eu-west-3.amazonaws.com/media/backend.jpg",
+         "image":"advisory.jpg"
       }
    }
 ]

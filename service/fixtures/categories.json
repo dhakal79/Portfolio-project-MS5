@@ -39,5 +39,29 @@
         "name": "watertreatment",
         "friendly_name": "watertreatment"
     }
+},
+{
+    "pk": 6,
+    "model": "service.category",
+    "fields": {
+        "name": "proposal",
+        "friendly_name": "proposal"
+    }
+},
+{
+    "pk": 7,
+    "model": "service.category",
+    "fields": {
+        "name": "waterquality",
+        "friendly_name": "waterquality"
+    }
+},
+{
+    "pk": 8,
+    "model": "service.category",
+    "fields": {
+        "name": "advisory",
+        "friendly_name": "advisory"
+    }
 }
 ]
