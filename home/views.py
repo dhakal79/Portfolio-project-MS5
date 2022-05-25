@@ -7,5 +7,3 @@ def index(request):
     return render(request, 'home/index.html')
 
 
-def error_404(request,):
-    return render(request, 'error_404.html')
