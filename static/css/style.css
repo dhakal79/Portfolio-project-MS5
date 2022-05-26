@@ -49,6 +49,12 @@ footer {
 	/* use important to override link colors for <a> elements */
 	border: 1px solid black;
 }
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
 
 .shop-now-button:hover,
 .shop-now-button:active,
@@ -67,6 +73,9 @@ footer {
 .border-black {
 	border: 1px solid black !important;
 }
+.bg-black {
+    background: #000 !important;
+}
 
 .overlay {
 	height: 100%;
@@ -76,6 +85,17 @@ footer {
 	position: fixed;
 	background: white;
 	z-index: -1;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+.btt-link {
+    cursor: pointer;
 }
 
 .message-container {
@@ -456,7 +476,5 @@ textarea {
 		padding-top: 40px;
 	}
 
-	p {
-		margin-top: 80px;
-	}
+	
 }
