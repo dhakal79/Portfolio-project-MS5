@@ -55,17 +55,17 @@ def product_detail(request, service_id):
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only owners can do that.')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            product = form.save()
+            service = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('product_detail', args=[service.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add service. Please ensure the form is valid.')
     else:
         form = ProductForm()
 
@@ -89,10 +89,10 @@ def edit_product(request, service_id):
         form = ProductForm(request.POST, request.FILES, instance=service)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated product!')
+            messages.success(request, 'Successfully updated service!')
             return redirect(reverse('product_detail', args=[service.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update service. Please ensure the form is valid.')
     else:
         form = ProductForm(instance=service)
         messages.info(request, f'You are editing {service.name}')
