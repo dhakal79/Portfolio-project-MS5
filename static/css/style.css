@@ -137,13 +137,20 @@ footer {
 	max-width: 70%;
     height: auto;
 }
+/* purchase.html */
+.w-15 {
+    width: 15% !important;
+}
 
-.form-control .form-control-sm .qty_input{
-	width: 10px;
+.purchase-image-width {
+    width: 20% !important;
 }
-.form-group{
-	width: 200px;
+
+.update-link,
+.remove-item {
+    cursor: pointer;
 }
+
 
 /* Allauth form formatting */
 

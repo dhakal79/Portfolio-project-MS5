@@ -55,7 +55,7 @@
                                                             </button>
                                                         </div>
                                                         <!-- Quantity field -->
-                                                        <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.service.pk }}" id="id_qty_{{ item.service.pk }}">
+                                                        <input class="form-control form-control-sm qty_input" type="number" name="quantity" value="{{ item.quantity }}" min="1" max="1000" data-item_id="{{ item.service.pk }}" id="id_qty_{{ item.service.pk }}">
                                                         <!-- Increment quantity button -->
                                                         <div class="input-group-append">
                                                             <button class="increment-qty btn btn-sm border" data-item_id="{{ item.service.pk }}" id="increment-qty_{{ item.service.pk }}">
@@ -106,19 +106,19 @@
 
 <script type="text/javascript">
     //Update quantity when update button is click
-    €(".update-link").click(function(e) {
-        var form = €(this).prev(".update-qty");
+    $(".update-link").click(function(e) {
+        var form = $(this).prev(".update-qty");
         form.submit();
     })
 
     //Remove items when remove button is click 
-    €('.remove-item').click(function(e) {
+    $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var serviceId = €(this).attr('id').split('remove_')[1];
+        var serviceId = $(this).attr('id').split('remove_')[1];
         var url = `/purchase/remove/${serviceId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
-        €.post(url, data)
+        $.post(url, data)
          .done(function() {
              location.reload();
          });
