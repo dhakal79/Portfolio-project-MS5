@@ -27,23 +27,23 @@
                                         <th scope="col"></th>
                                         <th scope="col"></th>
                                         <th scope="col">Price</th>
-                                        <th scope="col">Hours</th>                                        
+                                        <th scope="col">Number of hours</th>                                        
                                     </tr>
                                 </thead>
 
                                 {% for item in purchase_items %}
                                     <tr>
-                                        <td class="p-3 cart-image-width">
+                                        <td class="p-3 purchase-image-width">
                                             <img class="img-fluid rounded" src="{{ item.service.image_url }}">
                                         </td>
                                         <td class="py-3">
-                                            <p class="my-0"><strong>{{ item.service.name }}</strong></p>                                            
+                                            <p class="my-0"><strong>{{ item.service.name }}</strong></p>                                     
                                         </td>
                                         <td class="py-3">
                                             <p class="my-0" id="price">€{{ item.service.price }}</p>
                                         </td>
                                         <td class="py-3 w-15">
-                                            <form class="form update-qty" method="POST" action="{% url 'edit_product' item.service.pk %}">
+                                            <form class="form update-qty" method="POST" action="{% url 'adjust_purchase' item.service.pk %}">
                                                 {% csrf_token %}
                                                 <div class="form-group">
                                                     <div class="input-group">
@@ -66,20 +66,19 @@
                                             </form>
                                             <a class="update-link link-dec-none"><small>Update</small></a>
                                             <a class="remove-item float-end link-dec-none" id="remove_{{ item.service.pk }}"><small>Remove</small></a>
-                                        </td>
-                                        
+                                        </td>                                        
                                     </tr>
                                 {% endfor %}
                                 <tr>
-                                    <td colspan="5" class="pt-5 text-end">
-                                        <h6><strong>Purchase Total: €{{ total|floatformat:2 }}</strong></h6>                                        
+                                    <td colspan="5" class="pt-5 text-end">                                                                          
+                                        <h4 class="mt-4">Grand Total: €{{ grand_total|floatformat:2 }}</h4>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="5" class="text-end">
                                         <a href="{% url 'service' %}" class="btn btn-outline-black btn-lg border">
                                             <span class="icon"><i class="fas fa-chevron-left"></i></span>
-                                            <span>Back</span>
+                                            <span>Keep Shopping</span>
                                         </a>
                                         <a href="{% url 'checkout' %}" class="btn btn-black btn-lg"><span>Checkout</span></a>
                                     </td>
@@ -104,13 +103,13 @@
 {% include 'service/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
-    //Update quantity when update button is click
+    //Update quantity of selected book on click
     $(".update-link").click(function(e) {
         var form = $(this).prev(".update-qty");
         form.submit();
     })
 
-    //Remove items when remove button is click 
+    //Remove book and refresh page on click
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var serviceId = $(this).attr('id').split('remove_')[1];

@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.contrib.auth.decorators import login_required
 from .models import Service, Category
 from .forms import ProductForm
+from django.views.decorators.http import require_http_methods
 
 # Create your views here.
 
@@ -25,7 +26,7 @@ def all_products(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('services'))
+                return redirect(reverse('service'))
 
         queries = Q(name__icontains=query) | Q(blurb__icontains=query)
         services = services.filter(queries)
@@ -75,7 +76,6 @@ def add_product(request):
     }
 
     return render(request, template, context)
-
 
 @login_required
 def edit_product(request, service_id):

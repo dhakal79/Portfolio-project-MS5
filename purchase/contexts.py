@@ -11,12 +11,12 @@ def purchase_contents(request):
     service_count = 0
     purchase = request.session.get('purchase', {})
 
-    for item_id, quantity in purchase.items():
-        service = get_object_or_404(Service, pk=item_id)
+    for service_id, quantity in purchase.items():
+        service = get_object_or_404(Service, pk=service_id)
         total += quantity * service.price
         service_count += quantity
         purchase_items.append({
-            'item_id': item_id,
+            'service_id': service_id,
             'quantity': quantity,
             'service': service,
         })

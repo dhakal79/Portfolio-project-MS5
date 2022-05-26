@@ -13,20 +13,18 @@ def view_purchase(request):
 
 def add_to_purchase(request, service_id):
     """ Add a quantity of the specified service to the shopping bag """
-    service = Service.objects.get(pk=service_id)
-    quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
-    purchase = request.session.get('purchase', {})
+    quantity = int(request.POST.get("quantity"))
+    redirect_url = request.POST.get("redirect_url")
+    purchase = request.session.get("purchase", {})
 
     if service_id in list(purchase.keys()):
         purchase[service_id] += quantity
     else:
         purchase[service_id] = quantity
-        messages.success(request, f'Added {service.name} to your purchase')
 
-    request.session['purchase'] = purchase
-    return redirect(redirect_url)
-
+    request.session["purchase"] = purchase
+    return redirect(redirect_url)     
+    
 
 def adjust_purchase(request, service_id):
     """
@@ -42,7 +40,7 @@ def adjust_purchase(request, service_id):
         del purchase[service_id]
 
     request.session["purchase"] = purchase
-    return redirect(reverse("purchase"))
+    return redirect(reverse("view_purchase"))
 
 
 def remove_from_purchase(request, service_id):
@@ -56,3 +54,4 @@ def remove_from_purchase(request, service_id):
 
     request.session["purchase"] = purchase
     return HttpResponse(status=200)
+
