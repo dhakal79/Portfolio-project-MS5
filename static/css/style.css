@@ -133,6 +133,17 @@ footer {
 	padding-left: 20px;
 	padding-right: 20px;
 }
+.img-fluid {
+	max-width: 70%;
+    height: auto;
+}
+
+.form-control .form-control-sm .qty_input{
+	width: 10px;
+}
+.form-group{
+	width: 200px;
+}
 
 /* Allauth form formatting */
 
@@ -222,6 +233,11 @@ textarea {
 @media (min-width: 1200px) {
 	.container {
 		max-width: 80%;
+	}
+
+	.img-fluid {
+		max-width: 70%;
+		height: auto;
 	}
 }
 
@@ -473,7 +489,11 @@ textarea {
 	}
 
 	.img-fluid {
-		padding-top: 40px;
+		padding-top: 10px;
+		max-width: 100px;
+	}
+	.form-group{
+		width: 150px;
 	}
 
 	
