@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://dhakalconsultancy.herokuapp.com/sitemap.xml
