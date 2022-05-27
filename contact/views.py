@@ -4,7 +4,9 @@ from .models import NewletterSubscriber
 from .forms import ContactForm, NewsletterForm
 
 
-# Create your views here.
+# Create views for contact.
+
+
 def contact(request):
     """ A view to handle the user contact form """
 
@@ -23,6 +25,8 @@ def contact(request):
     }
 
     return render(request, 'contact/contact.html', context)
+
+# a function to newsletter subscriptions.
 
 
 def newsletter(request):
@@ -48,6 +52,8 @@ def newsletter(request):
 
     return render(request, 'contact/newsletter.html', context)
 
+# a function to newsletter unsubscriptions.
+
 
 def newsletter_unsub(request):
     """ A view to handle newsletter unsubscriptions """
@@ -62,11 +68,12 @@ def newsletter_unsub(request):
                 NewletterSubscriber.objects.filter(
                     email=instance.email).delete()
                 messages.success(request, 'You have successfully unsubscribed \
-                    from our newsletter, we are sorry to see you go.')
+                    from our newsletter.We are happy to welcome you \
+                        back again.')
                 return redirect(reverse('home'))
             else:
-                messages.error(request, 'Sorry but we did not find your email address. \
-                    Please check it has been entered correctly.')
+                messages.error(request, 'Sorry the emain address you entered is not correct. \
+                    Please check it and entered correctly.')
 
     context = {
         'form': form,

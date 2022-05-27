@@ -3,13 +3,11 @@ from django.contrib.auth.decorators import user_passes_test
 from .models import Post
 from .forms import CreatePostForm, EditPostForm
 
+# function to list the publish news lists
+
 
 def news_list(request):
-    """
-    A view to display the publish template.
-    """
     posts = Post.objects.all()
-
     template = "publish/publish.html"
     context = {
         "posts": posts
@@ -17,12 +15,10 @@ def news_list(request):
 
     return render(request, template, context)
 
+# function to render individual page of the news
+
 
 def news_post(request, year, month, day, hour, minute, post):
-    """
-    A view to render an individual page for each
-    post in the database.
-    """
     post = get_object_or_404(Post, slug=post, publish__year=year,
                              publish__month=month, publish__day=day,
                              publish__hour=hour, publish__minute=minute)
@@ -33,13 +29,11 @@ def news_post(request, year, month, day, hour, minute, post):
 
     return render(request, template, context)
 
+# function to add news post only to the superuser
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def add_post(request):
-    """
-    A view to display the form allowing super
-    users to create new posts
-    """
     if request.method == "POST":
         form = CreatePostForm(request.POST)
         if form.is_valid():
@@ -52,13 +46,11 @@ def add_post(request):
         form = CreatePostForm()
     return render(request, "publish/new_post.html", {"form": form})
 
+# function to edit news post only to the superuser
+
 
 @user_passes_test(lambda u: u.is_superuser)
 def edit_post(request, year, month, day, hour, minute, post):
-    """
-    A view to to display and submit forms to allow
-    the super user to edit existing posts
-    """
     post = get_object_or_404(Post, slug=post, publish__year=year,
                              publish__month=month, publish__day=day,
                              publish__hour=hour, publish__minute=minute)
@@ -71,6 +63,8 @@ def edit_post(request, year, month, day, hour, minute, post):
         data = {"title": post.title, "body": post.body}
         form = EditPostForm(initial=data)
     return render(request, "publish/edit_post.html", {"form": form})
+
+# function to delete news post only to the superuser
 
 
 @user_passes_test(lambda u: u.is_superuser)

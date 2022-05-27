@@ -6,12 +6,10 @@ from .models import Service, Category
 from .forms import ProductForm
 from django.views.decorators.http import require_http_methods
 
-# Create your views here.
+# Views to display all the services.
 
 
 def all_products(request):
-    """A view to show all products including sorting and search results"""
-
     services = Service.objects.all()
     query = None
     categories = None
@@ -39,10 +37,10 @@ def all_products(request):
 
     return render(request, 'service/service.html', context)
 
+# Views to display the service detail page for each service.
+
 
 def product_detail(request, service_id):
-    """A view to show product details"""
-
     service = get_object_or_404(Service, pk=service_id)
 
     context = {
@@ -51,22 +49,23 @@ def product_detail(request, service_id):
 
     return render(request, 'service/product_detail.html', context)
 
+# Views to add  the service to the purchase list.
+
 
 @login_required
 def add_product(request):
-    """ Add a product to the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only owners can do that.')
+        messages.error(request, 'Sorry, only site manager can do that.')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             service = form.save()
-            messages.success(request, 'Successfully added product!')
+            messages.success(request, 'Successfully added the service!')
             return redirect(reverse('product_detail', args=[service.id]))
         else:
-            messages.error(request, 'Failed to add service. Please ensure the form is valid.')
+            messages.error(request, 'Service has not been added. Please ensure the form is valid and try again.')
     else:
         form = ProductForm()
 
@@ -77,11 +76,13 @@ def add_product(request):
 
     return render(request, template, context)
 
+# Views to edit the added  the service to the purchase list.
+
+
 @login_required
 def edit_product(request, service_id):
-    """ Edit a product in the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only site manager can do that.')
         return redirect(reverse('home'))
 
     service = get_object_or_404(Service, pk=service_id)
@@ -89,10 +90,10 @@ def edit_product(request, service_id):
         form = ProductForm(request.POST, request.FILES, instance=service)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated service!')
+            messages.success(request, 'Successfully updated the service!')
             return redirect(reverse('product_detail', args=[service.id]))
         else:
-            messages.error(request, 'Failed to update service. Please ensure the form is valid.')
+            messages.error(request, 'Service has not been added. Please ensure the form is valid and try again.')
     else:
         form = ProductForm(instance=service)
         messages.info(request, f'You are editing {service.name}')
@@ -105,12 +106,14 @@ def edit_product(request, service_id):
 
     return render(request, template, context)
 
+# Views to delete the added  the service to the purchase list.
+
 
 @login_required
 def delete_product(request, service_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only store owners can do that.')
+        messages.error(request, 'Sorry, only site manager can do that.')
         return redirect(reverse('home'))
 
     service = get_object_or_404(Service, pk=service_id)

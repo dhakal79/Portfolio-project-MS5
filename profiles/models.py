@@ -6,7 +6,7 @@ from django.dispatch import receiver
 from django.core.exceptions import ObjectDoesNotExist
 
 
-# Create your models here.
+# Classbased models for user profile .
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone_number = models.CharField(

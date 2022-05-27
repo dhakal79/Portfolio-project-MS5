@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
 from service.models import Service
 
-# Create your views here.
+# Views for service purchase model.
 
 
 def view_purchase(request):
@@ -10,9 +10,10 @@ def view_purchase(request):
 
     return render(request, 'purchase/purchase.html')
 
+# function to add purchase of service
+
 
 def add_to_purchase(request, service_id):
-    """ Add a quantity of the specified service to the shopping bag """
     quantity = int(request.POST.get("quantity"))
     redirect_url = request.POST.get("redirect_url")
     purchase = request.session.get("purchase", {})
@@ -23,14 +24,12 @@ def add_to_purchase(request, service_id):
         purchase[service_id] = quantity
 
     request.session["purchase"] = purchase
-    return redirect(redirect_url)     
-    
+    return redirect(redirect_url)
+
+# function to edit the added purchased service
+
 
 def adjust_purchase(request, service_id):
-    """
-    Change the quantity of the selected service in the shopping cart.
-    """
-
     quantity = int(request.POST.get("quantity"))
     purchase = request.session.get("purchase", {})
 
@@ -42,16 +41,13 @@ def adjust_purchase(request, service_id):
     request.session["purchase"] = purchase
     return redirect(reverse("view_purchase"))
 
+# function to remove the the added purchased service
+
 
 def remove_from_purchase(request, service_id):
-    """
-    Remove the selected service from the shopping cart.
-    """
-
     purchase = request.session.get("purchase", {})
 
     del purchase[service_id]
 
     request.session["purchase"] = purchase
     return HttpResponse(status=200)
-
