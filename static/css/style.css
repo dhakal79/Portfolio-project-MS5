@@ -492,11 +492,13 @@ textarea {
 	}
 
 	.col-12 {
-		padding-bottom: 20px;
+		padding-bottom: 5px;
 	}
 
 	.img-fluid {
-		padding-top: 10px;
+		padding-top: 0px;	
+		max-width: 90%;
+		height: auto;
 		
 	}
 	.form-group{
