@@ -105,22 +105,34 @@ Three step processes were followed as below:
 
 [Balsamiq](https://balsamiq.com/) was used to create wireframes of the website. This was very useful as it gives the template of the UI. Wireframes were designed for  mobile browser format. The concept design (wireframes) of webpages of the water channel prepared is presented below.
 
-### Home page (MY Water Channel)
-![wireframe](media/image/wireframe-home.jpg)
+### Home page 
+![wireframe](media/iframe/media/home.jpg)
 
 ### About us 
-![wireframe](media/image/wireframe-detail.jpg)
+![wireframe](media/iframe/media/about.jpg)
 
 ### Our service 
-![wireframe](media/image/wireframe-pagination.jpg)
+![wireframe](media/iframe/media/service.jpg)
+
+### Service details 
+![wireframe](media/iframe/media/service-detail.jpg)
+
+### Checkout 
+![wireframe](media/iframe/media/checkout.jpg)
+
+### Order confirmation
+![wireframe](media/iframe/media/order-confirmation.jpg)
 
 ### Latest News 
-![wireframe](media/image/wireframe-post.jpg)
+![wireframe](media/iframe/media/news.jpg)
+
+### News details 
+![wireframe](media/iframe/media/news-detail.jpg)
 
 ### Contact us 
-![wireframe](media/image/wireframe-category.jpg)
-
+![wireframe](media/iframe/media/contact.jpg)
  <a name="features"></a>
+
 
 # 3. Features
   [Go to the top](#table-of-contents)
@@ -192,12 +204,20 @@ After adding to the purchase bag and once the user is ready he/she can click on 
 Once he/she is sure about the service then he/she can be click to checkout button which will lead to the payment page as below.
 ![secure-check-out](media/readme/media/checkout-payment.jpg)
 
-### 3.1.8 Contact us
+Once the payment is done it will send the order confirmation with order number, service details purchased and contact information.
+
+![secure-check-out](media/readme/media/order-confirmation.jpg)
+
+### 3.1.8 User Profile
+This page shows a form so the user can update their  details. Upon completing the form, all the details will be updated if the user proceeds to the checkout page again.Here the user can also see his purchased history based on the order number. An alert will also show prompting the user they are viewing a past order confirmation summary.
+![contact-us](media/readme/media/profile.jpg)
+
+### 3.1.9 Contact us
 The site has a nav bar "contact us" and also included at the buttom in the footer. The user can send a message and request an appointment for further discussion through this contact us page.
 
 ![contact-us](media/readme/media/contact-us.jpg)
 
-### 3.1.9 Newsletter subscription/unsubscription
+### 3.1.10 Newsletter subscription/unsubscription
 The site users has an option to subscribe the news. They can enter the email address and click right arrow bar at the bottom of the page, then it will redirect to the page to make confimation as below 
 ![subscription](media/readme/media/newletter-subscription.jpg)
 
@@ -207,7 +227,7 @@ Once you click submit button the the entered email address will be saved and a c
 The website also has an option to unsubscribe to the newsletter as shown below;
 ![unsubscribe](media/readme/media/unsubscribe.jpg)
 
-### 3.1.10 Sign up Page
+### 3.1.11 Sign up Page
 The website has a simple signup form that requires the user to enter a unique email address and a password. The password must be entered again for confirmation, this must match the already entered password above. Once he/she entered the email address and password and click sign in, a successful message appears and if the email address is already registered the user receive an error message... In that case, he/she can registered using sign in.
 ![sign-in](media/readme/media/sign-in.jpg)
 
