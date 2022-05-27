@@ -35,7 +35,7 @@
             {% endfor %}
             {% if request.user.is_superuser %}
                 <a href="{% url 'add_post' %}">
-                    <button type="button" class="btn btn-primary">Add Post</button>                   
+                    <button id ="post" type="button" class="btn btn-primary">Add Post</button>                   
                 </a>
             {% endif %}
         </div>

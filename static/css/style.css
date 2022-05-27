@@ -497,11 +497,29 @@ textarea {
 
 	.img-fluid {
 		padding-top: 10px;
-		max-width: 100px;
+		
 	}
 	.form-group{
 		width: 150px;
 	}
-
+	#post{
+		margin-left: 30px;
+	}
+	.form-group{
+		width: 300px;
+	}
+	.btn{
+		padding: 0.25rem 0.35rem;
+	}
+	footer{
+		width: auto;
+		margin-top: 10px;
+	}
+	.display-4.logo-font.text-black {
+		font-size: 1.5rem;
+	}
+	#about li{
+		width: 200%;
+	}
 	
 }
