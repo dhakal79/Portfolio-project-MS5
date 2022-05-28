@@ -62,8 +62,7 @@
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
-                                    <th scope="col">Product Info</th>
-                                    <th scope="col"></th>
+                                    <th scope="col">Product Info</th>                                    
                                     <th scope="col">Price</th>
                                     <th scope="col">Number of hours</th>
                                     
@@ -131,10 +130,9 @@
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var size = $(this).data('product_size');
-        var url = `/purchase/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+        var serviceId = $(this).attr('id').split('remove_')[1];
+        var url = `/purchase/remove/${serviceId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
          .done(function() {
