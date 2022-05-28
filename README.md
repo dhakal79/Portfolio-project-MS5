@@ -272,16 +272,17 @@ The user also has an option to sigout
 - All the code written were also validated using W3C validator (for Html), PEP8 online (Python),Jigsaw (CSS) and JS Hint(Javascript). the details of each testing are summarized below.
 ## 5.2 W3C, Jigsaw, JS Hint and PEP8 online validation
   I have tested manually (for each page of the website) by passing the code through W3C, JigSaw and PEP8 online validation tool and confirmed there are no errors. The screenshot is as shown below:
-  for W3C validation (sample example for home page)
-  ![W3C validation](media/image/w3c.jpg)
-  for CSS validation
- ![JigSaw validation](media/image/css.jpg)
 
-  for PEP8 validation
- ![PEP8online validation](media/image/pep8online.jpg)
-   forJS Hint validation
- ![JS Hint validation](media/image/pep8online.jpg)
+### W3C HtmL validation (sample example for home page)
  
+### CSS validation
+
+
+### PEP8 validation
+
+  PEP8online validation tool was used to check the python code. The validtor showed error of "line too long". In most of the cases i ignore this error. This was solved by adding to new line but in most of the cases this error was ignored. 
+
+### Js Hint validation
 
 ## 5.3 Responsive Tools
 I used [Am I Responsive](http://ami.responsivedesign.is) to make sure that all my pages are responsive to all devices.
@@ -308,7 +309,8 @@ Contact Us page | When clicking the "contact us" link in the footer/nav bar, the
 Privacy policy page | When clicking the "Privacy policy" link in the footer, the browser redirects to the privacy policy page. | PASS
 Facebook | When clicking the Facebook icon, a new tab opens and redirects to the Facebook business website. | PASS
 Responsive design|Checked if the design is responsive to differnt media size or  not.|PASS
-
+Order confirmation|Checked if after the payment order confirmation with order number and other details send to email or not|PASS
+Profile Page|Checked if after the order is comlelted , the order history displayed in the profile or not|PASS
 
 <a name="bugs"></a>
 
@@ -316,34 +318,13 @@ Responsive design|Checked if the design is responsive to differnt media size or 
   [Go to the top](#table-of-contents)
 
 ## 6.1 Solved bugs
-- The update on static css did not show up in webpage after heroku deployment. This was solved by changing below;
 
-    In setting.py
 
-      1. debug = "DEVELOPMENT" in os.environ
-
-    In, env.py add,
-
-      2. os.environ["DEVELOPMENT"] = "true"  and 
-
-    In Heroku setting remove:
-
-      3. DISABLE_COLLECTSTATIC          1  
-
-- The update in static CSS also did not change in gitpod environment as well. This was solved by adding missing '/' in STATIC URL = 'static/'
-
-- The detail page edit did not work and it says the page cannot be reached. this was solved by adding missing '%' before url in the link below:
-<a href="{ url 'edit_post' post.pk %}">(Edit)</a>
-
-- Received an HTML validation error in the add post page. The Error was: Attribute maxlength not allowed on element select at this point.This issue was solved by switching CharField to TextField in the Post Model 
-
-- In edit page, the new image selection (repalcement of old image) did not work. This was solved by adding 
-  enctype="multipart/form-data as;
-  <form method="POST" enctype="multipart/form-data">
+    
   
 ## 6.2 Unsolved bugs
 Following PEP8 online validation for env.py files is kept as it is. It is related to long character...
-![PEP8online validation](media/image/pep8-unsolved-bug.jpg)
+
 
  <a name="deployment"></a>
 
@@ -355,7 +336,7 @@ Following PEP8 online validation for env.py files is kept as it is. It is relate
 ## 7.1 Method of Deployment
 ### 7.1.1 Installing Django and supporting libraries
 - In gitpod terminal, install Django and supporting libraries and create requirement files
-- Create a project "waterchanel" and app "blog" 
+- Create a project "Dhakal consultancy" and several apps 
 - Add installed app in the setting.py and migrate the chnages 
 ### 7.1.1 GitHub Repository
 - Set up project GitHub repository and user stories correctly 
@@ -363,39 +344,39 @@ Following PEP8 online validation for env.py files is kept as it is. It is relate
 - All installed apps are added within setting.py under INSTALLED_APPS
 
 ### 7.1.2 Deploying to Heroku app
-- Create new Heroku app 
-    
-- Added database 
+Following steps were followed to deploy in heroku:
 
-Steps for this were;
-
-i) Navigate to the resources tab for the app that has just been created.
-ii) In the Add-Ons section, search for the Heroku Postgres add on and submit an order form. iii)Select the Settings tab for the app. iv)Reveal Config Vars and copy the DATABASE_URL string provided. v) Create a env.py file within the project and use the copied string to create a DATABASE_URL environment variable. The Python OS module will be required for this.
-
-- Create a SECRET_KEY
-
-  i) Create a SECRET_KEY environment variable Within the env.py file ii) Add the SECRET_KEY variable in the settings tab of the Heroku app, reveal config vars and add the along with the corresponding string.
-  
-- Update setting.py file 
-
-Import dj_database_url and env.py into the settings.py file within the project as.
-import dj_database_url
-if os.path.isfile("env.py"):
-    import env
-- Update the default SECRET_KEY variable provided by Django to the SECRET_KEY environment variable.
- SECRET_KEY = os.environ.get('SECRET_KEY')
-
-- Copy DATABASE_URL to Settings.py
-- Copy SECRET_KEY to Settings.py
-- Migrate Changes
-- Connect app to Cloudinary
-- Tell Django where the templates are stored
-- Update ALLOWED_HOSTS
-- Create a Procfile
-- Connect the GitHub repository to the Heroku App
-
-Note: I followed all the steps mentioned in the Django Blog Cheat Sheet provided by Code Institute.
-
+- Create Heroku App
+- Install dj_database_url and psycopg2-binary in my local environment
+- Freeze requirements.txt file
+- In settings.py import dj_database_url
+- Add the Heroku database url via dj_database_url.parse()
+- Run migrations to the Postgres database
+- Create a SuperUser for the Postgres database
+- Configure the database so that when the app is running on Heroku it uses the Postgres database and when it's running locally it uses the SQLite database
+- Create Procfile so that Heroku creates a web dyno so that it will run gunicorn and serve the Django app
+- Disable Heroku collect static
+- Add the Heroku hostname to allowed hosts in settings.py
+- Generate a new Django secret key and add this to the Heroku config variables
+- Replace the secret key in settings.py to grab it from the environment
+- Set debug to True only if the environment is a development environment
+- Commit changes and deploy to GitHub and Heroku
+- Create an AWS account
+- Create an S3 bucket
+- Configure the S3 bucket settings and policies
+- Create and configure the IAM service
+- In the terminal install Boto3 and Django-storages
+- Freeze requirements.txt file
+- Add a statement to the AWS bucket if the environment is "USE_AWS"
+26. Add AWS keys to the Heroku config variables
+27. Create custom storage classes for media and static files
+28. In settings.py add a statement to use the static and media storage class and locations
+- Commit and push to GitHub and Heroku
+- In the S3 bucket create a new folder for media
+- Upload all used images to the media file in the S3 bucket
+- Add the Stripe keys to the Heroku config variables
+- Create a new webhook endpoint from the Stripe dashboard
+- Add all the Stripe keys to the Heroku config variables
 <a name="seo"></a>
 # 9. SEO
  [Go to the top](#table-of-contents)
