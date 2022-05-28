@@ -44,7 +44,7 @@
                                     {% include "purchase/product-info.html" %}
                                 </div>
                                 <div class="col-12 col-sm-6 order-sm-last">
-                                    <p class="my-0">Price Each: ${{ item.service.price }}</p>
+                                    <p class="my-0">Price Each: €{{ item.service.price }}</p>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     {% include "purchase/quantity-form.html" %}
@@ -79,14 +79,11 @@
                                         {% include "purchase/product-info.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.service.price }}</p>
+                                        <p class="my-0">€{{ item.service.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
                                         {% include "purchase/quantity-form.html" %}
-                                    </td>
-                                    <td class="py-3">
-                                        <p class="my-0">${{ item.service.price }}</p>
-                                    </td>
+                                    </td>                                    
                                 </tr>
                             {% endfor %}
                             <tr>
