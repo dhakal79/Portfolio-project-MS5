@@ -318,7 +318,7 @@ class Post(models.Model):
 ## 4. Site Skeleten (wireframe)
   [Go to the top](#table-of-contents)
 
-[Balsamiq](https://balsamiq.com/) was used to create wireframes of the website. This was very useful as it gives the template of the UI. Wireframes were designed for  mobile browser format. The concept design (wireframes) of webpages of the water channel prepared is presented below.
+[Balsamiq](https://balsamiq.com/) was used to create wireframes of the website. This was very useful as it gives the template of the UI. Wireframes were designed for  mobile browser format. The concept design (wireframes) of webpages of Dhakal Consultancy is presented below.
 
 ### Home page 
 ![wireframe](media/iframe/media/home.jpg)
@@ -417,11 +417,15 @@ After adding to the purchase bag and once the user is ready he/she can click on 
 ![secure-check-out](media/readme/media/secure-check-out.jpg)
 
 Once he/she is sure about the service then he/she can be click to checkout button which will lead to the payment page as below.
-![secure-check-out](media/readme/media/checkout-payment.jpg)
+![payment](media/readme/media/checkout-payment.jpg)
 
 Once the payment is done it will send the order confirmation with order number, service details purchased and contact information.
 
-![secure-check-out](media/readme/media/order-confirmation.jpg)
+![order-confirmation](media/readme/media/order-confirmation.jpg)
+
+After the confirmation order, the event details in stripe dashboard was also successful 
+
+![stripe wh](media/readme/media/stripe-wh.jpg)
 
 ### 3.1.8 User Profile
 This page shows a form so the user can update their  details. Upon completing the form, all the details will be updated if the user proceeds to the checkout page again.Here the user can also see his purchased history based on the order number. An alert will also show prompting the user they are viewing a past order confirmation summary.
