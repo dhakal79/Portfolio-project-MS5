@@ -27,18 +27,17 @@
         {% if request.user.is_superuser %}
         <div class="mt-auto" id="post-buttons">
             <a href="{{ post.get_delete_url }}" id="delete-post-button" 
-             onclick="return confirm('Are you sure you want to delete this post? This cannot be undone.')">
-             <button type="button" class="btn btn-danger">Delete</button>                
+             onclick="return confirm('Are you sure you want to delete this post? This cannot be undone.')">                
+                <span class="btn btn-secondary">Delete Post</span>        
             </a>
             <a href="{{ post.get_edit_url }}" id="edit-post-button">
-                <button type="button" class="btn btn-primary">Edit</button>
+                <span class="icon"><i class="fa-solid fa-pen-to-square"></i></span>
+                <span class="btn btn-primary">Edit Post</span>
                 
             </a>    
-        </div>
-    {% endif %}
-
-        
-    </div>
+        </div> 
+        {% endif %}
+    </div>          
 {% endblock %}
 
 {% block postloadjs %}
