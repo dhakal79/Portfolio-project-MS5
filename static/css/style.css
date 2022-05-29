@@ -150,6 +150,10 @@ footer {
 .remove-item {
     cursor: pointer;
 }
+.privacy{
+	margin-left: 950px;
+	color: #fff;
+}
 
 
 /* Allauth form formatting */
