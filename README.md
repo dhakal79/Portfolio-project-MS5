@@ -1,9 +1,9 @@
 # Dhakal Consultancy 
 Welcome! 
 ## Introduction
-The global water crisis is a major concern today and will become more severe in the coming years. The availability of freshwater becomes more challenging in the semi-arid regions. However, in other areas where freshwater is available(surface and groundwater),contamiantion and degradation of the water quality is a major issue risking the health of millions of people. As per the SDG 6, availability of fresh and safe water for all is a basic necessity for overall human development. Therefore, there is a need of experts in this filed who can provide the solutions/ideas instantly/remotely so the action on site can be taken immediately. 
+The global water crisis is a major concern today and will become more severe in the coming years. The availability of freshwater becomes more challenging in the semi-arid regions. However, in other areas where freshwater is available(surface and groundwater),contamiantion and degradation of the water quality is a major issue risking the health of millions of people. As per the SDG 6, availability of fresh and safe water for all is a basic necessity for overall human development. Therefore, there is a need of experts in this field who can provide the solutions/ideas instantly/remotely so the action on site can be taken immediately. 
 
-The overall aim of Dhakal Consultancy is a full-stack ecommerce web application to sell its services in the field of water treatment, desaliantion, water and sanitation as well as frontend and backend coding applications to customer from entire world.  This project is created as a part of Code Institute's Full Stack Software Development course.
+The overall aim of Dhakal Consultancy is to sell its consultancy services worldwide in the field of water treatment, desaliantion, water and sanitation as well as web design(frontend and backend). This project is created as a part of Code Institute's Full Stack Software Development course.
 The admin of the website will have the ability to use all CRUD functionality (Create, Read, Update, Delete).
 
 A live website can be found [here](https://dhakalconsultancy.herokuapp.com/).
@@ -16,25 +16,30 @@ A live website can be found [here](https://dhakalconsultancy.herokuapp.com/).
  [2. User Expereince (UX) design](#ux)
   - [Project Goals:](#project-goals)
   - [User Goals:](#user-goals)
-  - [Site Skeleten(Wireframe):](#wireframe)
 
-  [3. Features](#features)
+  [3. Structure (Models used):](#models)
+  
+  [4. Site Skeleten(Wireframe):](#wireframe)
+
+ [5. Features](#features)
  - [Existing features](#exist-feature)
  - [future features](#future-feature)
 
- [4.Technologies used](#technologies-used)
+ [6.Technologies used](#technologies-used)
 
- [5.Testing](#testing)
+ [7.Testing](#testing)
 
- [6.Bugs](#bugs)
+ [8.Bugs](#bugs)
 
- [7. Deployment](#deployment)
+ [9. Deployment](#deployment)
 
- [8. SEO](#seo)
- [9. Marketing](#marketing)
- [10. Social Media](#social-media)
+ [10. SEO](#seo)
 
-[8. Acknowledgement](#acknowledgement)
+ [11. Marketing](#marketing)
+
+ [12. Social Media](#social-media)
+
+[13. Acknowledgement](#acknowledgement)
 
   <a name="dhakal-consultancy"></a>
 
@@ -99,8 +104,218 @@ Three step processes were followed as below:
 - And finally when requirement was fully met, it was moved to the complete column.
 ![User Stories](media/readme/media/userstories_complete.jpg)
 
+
+  <a name="models"></a>
+## 3. Site Skeleten (models)
+  [Go to the top](#table-of-contents)
+
+### 3.1 Service models
+This model was used to display the list of services available within the scope of Dhakal Consultancy. The fixtures Json files for categories and services were written.
+
+class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+class Service(models.Model):
+
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
+    name = models.CharField(max_length=254)
+    blurb = models.TextField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return self.name
+
+### 3.2 Checkout model
+This model was used to for users to checkout with the services they are interested for and go for stripe payment. All the detail information of the buyer can be written during the checkout and which will generate the order number for customer reference. 
+
+class Order (models.Model):
+
+    """Model for the order object"""
+
+    order_number = models.CharField(max_length=32, null=False, editable=False)
+    user_profile = models.ForeignKey(
+        UserProfile, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name='orders')
+    full_name = models.CharField(max_length=50, null=False, blank=False)
+    email = models.CharField(max_length=254, null=False, blank=False)
+    phone_number = models.CharField(max_length=20, null=False, blank=False)
+    country = models.CharField(max_length=40, null=False, blank=False)
+    postcode = models.CharField(max_length=20, null=True, blank=True)
+    town_or_city = models.CharField(max_length=40, null=False, blank=False)
+    street_address1 = models.CharField(max_length=80, null=False, blank=False)
+    street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    county = models.CharField(max_length=80, null=True, blank=True)
+    date = models.DateField(auto_now_add=True)
+    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    original_purchase = models.TextField(null=False, blank=False, default="")
+    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default="")
+    user = models.CharField(max_length=150, null=True, blank=True)
+
+def _generate_order_number(self):
+        """
+        Use UUID to generate a unique order number.
+        """
+        return uuid.uuid4().hex.upper()
+
+    def update_total(self):
+        """
+        Update grand total each time a line item is added.
+        """
+        self.order_total = self.lineitems.aggregate(Sum("lineitem_total"))["lineitem_total__sum"] or 0
+        if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
+            self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
+        else:
+            self.delivery_cost = 0
+        self.grand_total = self.order_total + self.delivery_cost
+        self.save()
+
+    def save(self, *args, **kwargs):
+        """
+        Generate an order number if one hasn't been set already
+        """
+        if not self.order_number:
+            self.order_number = self._generate_order_number()
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.order_number
+
+
+class OrderLineItem(models.Model):
+
+    """Model for the order line item object"""
+
+    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name="lineitems")
+    service = models.ForeignKey(Service, null=False, blank=False, on_delete=models.CASCADE)
+    quantity = models.IntegerField(null=False, blank=False, default=0)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+
+    def save(self, *args, **kwargs):
+        """
+        Override the original save method to set the lineitem total
+        and update the order total.
+        """
+        self.lineitem_total = self.service.price * self.quantity
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.order.order_number
+
+
+### 3.3 Profiles model
+
+This model was used to for users to create their profiles and register their history of order.
+
+class UserProfile(models.Model):
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_phone_number = models.CharField(
+        max_length=20, null=True, blank=True)
+    default_street_address_1 = models.CharField(
+        max_length=80, null=True, blank=True)
+    default_street_address_2 = models.CharField(
+        max_length=80, null=True, blank=True)
+    default_town_or_city = models.CharField(
+        max_length=40, null=True, blank=True)
+    default_postcode = models.CharField(
+        max_length=20, null=True, blank=True)
+    default_county = models.CharField(
+        max_length=80, null=True, blank=True)
+    default_country = CountryField(
+        blank_label="Country", null=True, blank=True)
+
+    def __str__(self):
+        return self.user.email
+
+
+@receiver(post_save, sender=User)
+
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+
+    """Create or update the user profile """
+
+    try:
+        instance.userprofile.save()
+    except ObjectDoesNotExist:
+        UserProfile.objects.create(user=instance)
+
+### 3.4 Contact model
+
+This model was used to for users to contact the admin of Dhakal Consultancy using a contact form as well subscribe for the newsletter.
+
+class Contact(models.Model):
+
+    full_name = models.CharField(max_length=254, null=False, blank=False)
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    subject = models.CharField(max_length=50, null=False, blank=False)
+    message = models.TextField(max_length=254, null=False, blank=False)
+
+
+class NewletterSubscriber(models.Model):
+
+    email = models.EmailField(max_length=254, null=False, blank=False)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.email
+
+### 3.5 Publish model
+
+This model was used by admin to add, edit, delete the news post in the website of Dhakal Consultancy. 
+
+class Post(models.Model):
+
+    title = models.CharField(max_length=250)
+    slug = models.SlugField(max_length=250, unique_for_date="publish")
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               related_name="news_post")
+    body = models.TextField()
+    publish = models.DateTimeField(default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-publish", ]
+
+    def __str__(self):
+        return self.title + ' |' + str(self.author)
+
+    def get_absolute_url(self):
+        return reverse("news_post",
+                       args=[self.publish.year, self.publish.month,
+                             self.publish.day, self.publish.hour,
+                             self.publish.minute, self.slug])
+
+    def get_edit_url(self):
+        return reverse("edit_post",
+                       args=[self.publish.year, self.publish.month,
+                             self.publish.day, self.publish.hour,
+                             self.publish.minute, self.slug])
+
+    def get_delete_url(self):
+        return reverse("delete_post",
+                       args=[self.publish.year, self.publish.month,
+                             self.publish.day, self.publish.hour,
+                             self.publish.minute, self.slug])
+
+
+
   <a name="wireframe"></a>
-## 2.2 Site Skeleten (wireframe)
+## 4. Site Skeleten (wireframe)
   [Go to the top](#table-of-contents)
 
 [Balsamiq](https://balsamiq.com/) was used to create wireframes of the website. This was very useful as it gives the template of the UI. Wireframes were designed for  mobile browser format. The concept design (wireframes) of webpages of the water channel prepared is presented below.
