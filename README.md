@@ -22,8 +22,7 @@ A live website can be found [here](https://dhakalconsultancy.herokuapp.com/).
   [4. Site Skeleten(Wireframe):](#wireframe)
 
  [5. Features](#features)
- - [Existing features](#exist-feature)
- - [future features](#future-feature)
+ - [Existing features](#exist-feature) 
 
  [6.Technologies used](#technologies-used)
 
@@ -46,7 +45,7 @@ A live website can be found [here](https://dhakalconsultancy.herokuapp.com/).
 # 1. About the Dhakal Consultancy website
   [Go to the top](#table-of-contents)
 
-This consultancy website is desinged as a a platform to sell the expertise in the field of water and full-stack software.  
+This consultancy website is desinged as a platform to sell the expertise in the field of water and full-stack software development.  
    <a name="ux"></a>
 # 2. User Expereince (UX) design
   [Go to the top](#table-of-contents)
@@ -81,18 +80,18 @@ First Time Visitor Goals
 - Be able to easily remove items and update quantities of service from my purchase service list so that he/she can remove any services that is not of interest from the list.
 - Be able to select the the number of service hours of a service when selecting the particular service so that he/she can select the service with actual hours interested in.
 - Be able to easily enter my payment information at the checkout page so that he/she can checkout with no hassles.
-- Be able to receive an email confirmation after completing the checkout process so that he/she can have the proof of payment for the service requested.
+- Be able to receive confirmation after completing the checkout process so that he/she can have the proof of payment for the service requested.
 - Be able to see a contact page where i can write my details and questions so that I can send any query and make an appointment to discuss about the service.
 
 Returning Visitor Goals
 - Be able to easily register an account so that he/she can have a personal account and be able to view profile.
-- Be able to receive an email confirmation after registering so that I can verify that my account registration is successful.
 - Be able to easily login or logout so that he/she can access his/her personal account information.
 - Be able to easily reset my password in case I forget it so that I can have an access to my account.
 
 Frequent User Goals
 -   Be able to subscribe for newsletter so that I can follow the update of the organization.
 - Be able to unsubscribe for newsletter so that I can stop to follow the update of the organization anytime i wish.
+-Be able to see the updated blog posts
 
 Three step processes were followed as below:
 - Set the user requirements and added to the user stories within the github project
@@ -462,11 +461,6 @@ The website has a simple signup form that requires the user to enter a unique em
 The user also has an option to sigout 
 ![sign-out](media/readme/media/logout.jpg)
 
-<a name="future-feature"></a>
-## Future Features
-
-
-
 <a name="technologies-used"></a>
 
 # 4. Technologies-used
@@ -583,7 +577,7 @@ def adjust_purchase(request, service_id):
     return redirect(reverse("view_purchase"))
     
 ## 6.2 Unsolved bugs
-Following PEP8 online validation in some cases says too long character. It is ignored and kept as it is. 
+PEP8 online validation in some cases says too long character. It is ignored and kept as it is. 
 
 
  <a name="deployment"></a>
