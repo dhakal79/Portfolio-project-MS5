@@ -35,7 +35,7 @@ A live website can be found [here](https://dhakalconsultancy.herokuapp.com/).
 
  [10. SEO](#seo)
 
- [11. Marketing](#marketing)
+ [11. Marketing and business model](#marketing)
 
  [12. Social Media](#social-media)
 
@@ -501,16 +501,29 @@ The user also has an option to sigout
 ## 5.2 W3C, Jigsaw, JS Hint and PEP8 online validation
   I have tested manually (for each page of the website) by passing the code through W3C, JigSaw and PEP8 online validation tool and confirmed there are no errors. The screenshot is as shown below:
 
-### W3C HtmL validation (sample example for home page)
- 
-### CSS validation
+### 5.2.1 W3C HtmL validation (sample example for home page)
+Html validation was performed for each page using W3C. The errors related to the django code was ignored. Here i attached an example of home page.
+
+![html-validation](media/readme/media/home-html.jpg)
+
+ ### 5.2.2 CSS validation
+The CSS validation was performed using Jigsaw CSS validaor. there was no errors.
+
+![css-validation](media/readme/media/style-css.jpg)
+### 5.2.3 PEP8 validation
+
+  PEP8online validation tool was used to check the python code. The validtor showed error of "line too long". In most of the cases i ignore this error. In some cases, this error was solved by adding to new line. 
+
+  ![pep8-validation](media/readme/media/pep8.jpg)
+
+  ![pep8-validation](media/readme/media/setting.jpg)
+
+### 5.2.4 Js Hint validation
+Javascript code was validated using Js Hint validation. Some warnings were ignored
+
+ ![js-validation](media/readme/media/jshint.jpg)
 
 
-### PEP8 validation
-
-  PEP8online validation tool was used to check the python code. The validtor showed error of "line too long". In most of the cases i ignore this error. This was solved by adding to new line but in most of the cases this error was ignored. 
-
-### Js Hint validation
 
 ## 5.3 Responsive Tools
 I used [Am I Responsive](http://ami.responsivedesign.is) to make sure that all my pages are responsive to all devices.
@@ -539,6 +552,9 @@ Facebook | When clicking the Facebook icon, a new tab opens and redirects to the
 Responsive design|Checked if the design is responsive to differnt media size or  not.|PASS
 Order confirmation|Checked if after the payment order confirmation with order number and other details send to email or not|PASS
 Profile Page|Checked if after the order is comlelted , the order history displayed in the profile or not|PASS
+Stripe Dashboard|Checked if after the payment the successful event logged in dashboard and received successful message from webhook or not|PASS
+404 error page|Checked if after typing wrong url it will give 404 message and link to redirect to home page or not |PASS
+Profile Page|Checked if after the order is comlelted , the order history displayed in the profile or not|PASS
 
 <a name="bugs"></a>
 
@@ -546,12 +562,28 @@ Profile Page|Checked if after the order is comlelted , the order history display
   [Go to the top](#table-of-contents)
 
 ## 6.1 Solved bugs
+- I keep getting RelatedObjectDoesNotExist at /admin/login/. 
 
+This issue was related to version of jQuery. This was solved by using the latest version V3.6 and it worked after that.
+- I always had an issue with update button in the checkout page (it always gives 404 page error) which was due to wrong url given in the the reverse in view.py file
 
+This issue was solved by providing the correct name of url while reverse as below...
+
+def adjust_purchase(request, service_id):
+
+    quantity = int(request.POST.get("quantity"))
+    purchase = request.session.get("purchase", {})
+
+    if quantity > 0:
+        purchase[service_id] = quantity
+    else:
+        del purchase[service_id]
+
+    request.session["purchase"] = purchase
+    return redirect(reverse("view_purchase"))
     
-  
 ## 6.2 Unsolved bugs
-Following PEP8 online validation for env.py files is kept as it is. It is related to long character...
+Following PEP8 online validation in some cases says too long character. It is ignored and kept as it is. 
 
 
  <a name="deployment"></a>
@@ -559,7 +591,7 @@ Following PEP8 online validation for env.py files is kept as it is. It is relate
 # 7. Deployment
   [Go to the top](#table-of-contents)
 
-  The project was deployed to GitHub and pushed throughout the devlopment process. The project was also deployed to Heroku in the early stages of development to ensure that there weren't any issues later on in the project. Mannual deploy was selected within Heroku and has been deployed the latest versio/update in the project.
+  The project was deployed to GitHub and pushed throughout the devlopment process. The project was also deployed to Heroku in the early stages of development to ensure that there weren't any issues later on in the project. The project was deployed from the gitpod terminal.
 
 ## 7.1 Method of Deployment
 ### 7.1.1 Installing Django and supporting libraries
@@ -573,21 +605,37 @@ Following PEP8 online validation for env.py files is kept as it is. It is relate
 
 ### 7.1.2 Deploying to Heroku app
 Following steps were followed to deploy in heroku:
+- Create new Heroku app 
+    
+- Added database 
 
-- Create Heroku App
-- Install dj_database_url and psycopg2-binary in my local environment
-- Freeze requirements.txt file
-- In settings.py import dj_database_url
-- Add the Heroku database url via dj_database_url.parse()
-- Run migrations to the Postgres database
+Steps for this were;
+
+i) Navigate to the resources tab for the app that has just been created.
+ii) In the Add-Ons section, search for the Heroku Postgres add on and submit an order form. iii)Select the Settings tab for the app. iv)Reveal Config Vars and copy the DATABASE_URL string provided. v) Create a env.py file within the project and use the copied string to create a DATABASE_URL environment variable. The Python OS module will be required for this.
+
+- Create a SECRET_KEY
+
+  i) Create a SECRET_KEY environment variable Within the env.py file ii) Add the SECRET_KEY variable in the settings tab of the Heroku app, reveal config vars and add the along with the corresponding string.
+  
+- Update setting.py file 
+
+Import dj_database_url and env.py into the settings.py file within the project as.
+import dj_database_url
+if os.path.isfile("env.py"):
+    import env
+- Update the default SECRET_KEY variable provided by Django to the SECRET_KEY environment variable.
+ SECRET_KEY = os.environ.get('SECRET_KEY')
+
+- Copy DATABASE_URL to Settings.py
+- Copy SECRET_KEY to Settings.py
+- Migrate Changes
+-Tell Django where the templates are stored
+- Update ALLOWED_HOSTS
 - Create a SuperUser for the Postgres database
-- Configure the database so that when the app is running on Heroku it uses the Postgres database and when it's running locally it uses the SQLite database
-- Create Procfile so that Heroku creates a web dyno so that it will run gunicorn and serve the Django app
+- Configure the database so that when the app is running on Heroku it uses the Postgres database and when it's running locally it uses the SQLite databaseCreate a Procfile
+- Connect the GitHub repository to the Heroku App
 - Disable Heroku collect static
-- Add the Heroku hostname to allowed hosts in settings.py
-- Generate a new Django secret key and add this to the Heroku config variables
-- Replace the secret key in settings.py to grab it from the environment
-- Set debug to True only if the environment is a development environment
 - Commit changes and deploy to GitHub and Heroku
 - Create an AWS account
 - Create an S3 bucket
@@ -596,36 +644,39 @@ Following steps were followed to deploy in heroku:
 - In the terminal install Boto3 and Django-storages
 - Freeze requirements.txt file
 - Add a statement to the AWS bucket if the environment is "USE_AWS"
-26. Add AWS keys to the Heroku config variables
-27. Create custom storage classes for media and static files
-28. In settings.py add a statement to use the static and media storage class and locations
+- Add AWS keys to the Heroku config variables
+- Create custom storage classes for media and static files
+- In settings.py add a statement to use the static and media storage class and locations
 - Commit and push to GitHub and Heroku
 - In the S3 bucket create a new folder for media
 - Upload all used images to the media file in the S3 bucket
 - Add the Stripe keys to the Heroku config variables
 - Create a new webhook endpoint from the Stripe dashboard
 - Add all the Stripe keys to the Heroku config variables
+
 <a name="seo"></a>
 # 9. SEO
  [Go to the top](#table-of-contents)
 
 To improve the search engine optimisation (SEO) of the site following actions were taken:
-- Added keywords in a meta tag to my base.html. The keywords were researched using [WordTracker](https://www.wordtracker.com/), there are a number of short-tail and long-tail keywords.
+- Added keywords in a meta tag to my base.html. The list of all the keywords I came up with, desalianmtion, ultrafiltration, memebrane, water treatemnt, WASH, frontend developemnt, backend development.
 
-- This is a list of all the keywords I came up with, desalianmtion, ultrafiltration, memebrane, water treatemnt, WASH, frontend developemnt, backend development.
+I have also created in the project directory the followings.....
+- sitemap.xml and 
+- runtime.txt 
 
 <a name="marketing"></a>
-# 10. Marketing
+# 10. Marketing and business model
  [Go to the top](#table-of-contents)
 
- For my marketing strategies, I decided to go with content marketing, Social media and email marketing root. As these are free options and very effective for an E-commerce store.
+ For my marketing strategies of Dhakal Consultancy, I decided to go with 
+ ## 10.1 Content marketing: 
+  The general idea here is to create content that containes blog post (including video) related to the services of Dhakal Consultancy.
+ ## 10.2 Social media 
+ I decided to have facebook business page as primary. Later, i will add twitter, linkdin as they mostly used by the professionals in the field. Social media helps us to brand the consultancy and helps us to increase the visibility of the company.
 
-- Content marketing - Posting content that contains blog posts and video tutorials will be my primary source to display content.
-
-- Social media - Using these platforms will help build and interact with customers to build relationships and loyalty. This also helps build the brand. Followers will help share the business posts and in result gain more traction with other people. The same content can be across all social media platforms.
-
-- Email marketing - Using email marking via a newsletter will be beneficial as it is a free source of marketing. Those who are subscribed are more likely to convert into paying customers. This will increase sales and returning customers as I can provide discount codes and other special offers. A good pro is that the business has total control over the design of the emails.
-
+ ## 10.3 Email marketing
+ This will be another stragegy for marketing using email. This is planned to provide email id in newslettes as well as in the contact page of the website where the customers can contact us via the email.
 
 <a name="social-media"></a>
 # 11. Social Media
@@ -643,4 +694,6 @@ To improve the search engine optimisation (SEO) of the site following actions we
 * Inspired from Project Boutique Adoand from the code institute course
 * Thanks to my mentor Marcel Mulders for his constructive feedback
 * Thanks to the Code Institute tutor support team, who helped me develop my understanding throughout this project.
+* Inspired from the project shared by the mentor. https://github.com/iKelvvv/MS5
+* django-ecommerce-ms5 from code institute project sumbission  
 * Text in the blog post were taken from various sources in the internet
