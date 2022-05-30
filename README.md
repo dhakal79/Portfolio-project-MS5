@@ -367,7 +367,7 @@ Dhakal consultancy has naviagation bar that includes;
 - Purchase bag 
 
 Any users have an ability to view the home page, page detail view, register in the webpage and login as registered user.
-![Nav bar](media/readme/media/nav-bar.jpg)
+![nav-bar](media/readme/media/nav-bar.jpg)
 
 - Link for Social media(facebook) and newsletter subscription are placed at the bottom of the each page in the footer. 
 ![footer](media/readme/media/footer.jpg)
@@ -383,13 +383,15 @@ The admin page is created where the admin has the ability right to the all CRUD 
 
 The website has homepage with the image and a button for the services. The users can click on the button to explore the possible service provided by the consultancy.The page also contains the footer with facebook business page link , newsletter subscription and contact us as well as option to login and logout.
 
-![Home Page](media/readme/media/home-page.jpg)
+![home-page](media/readme/media/home-page.jpg)
 
 ### 3.1.4 Login and Register
 
 The site user is able to register, login and logout. Once they register and login they have an access to create a profile for future.
 
 ![Login Page](media/readme/media/login.jpg)
+
+![Register Page](media/readme/media/register.jpg)
 
 ### 3.1.5 About
 
@@ -405,18 +407,21 @@ The site has the tab "services" where the users can see what the service availab
 ### 3.1.7 Detail page for services
 
 The detail page of the service provide the detail activities about the service, and an option to select the number of hours of the service. Once the service is selected, the produce can be added to the purchase list by clicking the buttom add to purchase. There is also an option for keep shoping if the user wants to get more service.
+
 ![service-detail](media/readme/media/services-detail.jpg)
 
-Once it is clicked the product is added to the purchase bag where it is listed the service purchase and the total cost.
+Once it is clicked the product is added to the purchase bag where it is listed the total amount of purchase cost.
 
 ![purchase-bag](media/readme/media/purchase-bag.jpg)
 
  The page also has an option site has the tab "services" where the users can see what the service available in Dhakal Consultancy. It shows with the picture, title of the serice and unit hour cost. By clicking the picture, the user is redirected to the detail page of the service. 
 
-After adding to the purchase bag and once the user is ready he/she can click on "go to secure checkout". it will then redired to the page below where user can view the details of purchase order. 
+After adding to the purchase bag and once the user is ready he/she can click on "total amount". it will then redired to the page below where user can view the details of purchase order. 
+
 ![secure-check-out](media/readme/media/secure-check-out.jpg)
 
-Once he/she is sure about the service then he/she can be click to checkout button which will lead to the payment page as below.
+Once he/she is sure about the service then he/she can be click to secure-checkout button which will lead to the payment page as below.
+
 ![payment](media/readme/media/checkout-payment.jpg)
 
 Once the payment is done it will send the order confirmation with order number, service details purchased and contact information.
@@ -438,16 +443,20 @@ The site has a nav bar "contact us" and also included at the buttom in the foote
 
 ### 3.1.10 Newsletter subscription/unsubscription
 The site users has an option to subscribe the news. They can enter the email address and click right arrow bar at the bottom of the page, then it will redirect to the page to make confimation as below 
+
 ![subscription](media/readme/media/newletter-subscription.jpg)
 
 Once you click submit button the the entered email address will be saved and a confirmation email will be send to the email address as below 
+
 ![success-message](media/readme/media/success-message.jpg)
 
 The website also has an option to unsubscribe to the newsletter as shown below;
+
 ![unsubscribe](media/readme/media/unsubscribe.jpg)
 
 ### 3.1.11 Sign up Page
 The website has a simple signup form that requires the user to enter a unique email address and a password. The password must be entered again for confirmation, this must match the already entered password above. Once he/she entered the email address and password and click sign in, a successful message appears and if the email address is already registered the user receive an error message... In that case, he/she can registered using sign in.
+
 ![sign-in](media/readme/media/sign-in.jpg)
 
 The user also has an option to sigout 
