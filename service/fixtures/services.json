@@ -86,7 +86,7 @@
       }
    },
    {
-      "pk":7,
+      "pk":8,
       "model":"service.service",
       "fields":{
          "name":"Advisory services",
