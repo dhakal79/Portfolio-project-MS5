@@ -669,6 +669,8 @@ I have also created in the project directory the followings.....
 # 10. Marketing and business model
  [Go to the top](#table-of-contents)
 
+## 10.1 Marketing strategies
+
  For my marketing strategies of Dhakal Consultancy, I decided to go with 
  ## 10.1 Content marketing: 
   The general idea here is to create content that containes blog post (including video) related to the services of Dhakal Consultancy.
@@ -677,6 +679,10 @@ I have also created in the project directory the followings.....
 
  ## 10.3 Email marketing
  This will be another stragegy for marketing using email. This is planned to provide email id in newslettes as well as in the contact page of the website where the customers can contact us via the email.
+## 10.2 Business model
+Dhakal Conslutancy is aimed to provide the consultancy services in the field of water treatment and web page development (frontend and backend). Both sectors has a huge demand of experts. The anticipated business model of Dhakal Consultancy is as shown in diagram below:
+
+
 
 <a name="social-media"></a>
 # 11. Social Media
