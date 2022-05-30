@@ -23,7 +23,8 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(
+                    request, "You didn't enter any search criteria!")
                 return redirect(reverse('service'))
 
         queries = Q(name__icontains=query) | Q(blurb__icontains=query)
@@ -65,7 +66,9 @@ def add_product(request):
             messages.success(request, 'Successfully added the service!')
             return redirect(reverse('product_detail', args=[service.id]))
         else:
-            messages.error(request, 'Service has not been added. Please ensure the form is valid and try again.')
+            messages.error(
+                request, 'Service has not been added. \
+                Please ensure the form is valid and try again.')
     else:
         form = ProductForm()
 
@@ -93,7 +96,9 @@ def edit_product(request, service_id):
             messages.success(request, 'Successfully updated the service!')
             return redirect(reverse('product_detail', args=[service.id]))
         else:
-            messages.error(request, 'Service has not been added. Please ensure the form is valid and try again.')
+            messages.error(
+                request, 'Service has not been added. \
+                Please ensure the form is valid and try again.')
     else:
         form = ProductForm(instance=service)
         messages.info(request, f'You are editing {service.name}')

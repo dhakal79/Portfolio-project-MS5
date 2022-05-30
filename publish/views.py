@@ -41,7 +41,8 @@ def add_post(request):
             new_post.author = request.user
             new_post.slug = new_post.title.lower().replace(" ", "-")
             new_post = form.save()
-            return render(request, "publish/news_post.html", {"post": new_post})
+            return render(
+                request, "publish/news_post.html", {"post": new_post})
     else:
         form = CreatePostForm()
     return render(request, "publish/new_post.html", {"form": form})

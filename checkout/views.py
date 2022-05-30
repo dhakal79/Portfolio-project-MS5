@@ -66,7 +66,7 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for weight, quantity in item_data['items_by_weight'].items():
+                        for weight, quantity in item_data['items_by_weight'].items():       # noqa: E501
                             order_line_item = OrderLineItem(
                                 order=order,
                                 service=service,
@@ -84,7 +84,7 @@ def checkout(request):
                     return redirect(reverse('view_purchase'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success', args=[order.order_number]))     # noqa: E501
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your details.')
