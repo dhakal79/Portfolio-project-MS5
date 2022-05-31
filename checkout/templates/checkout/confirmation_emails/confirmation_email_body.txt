@@ -1,10 +1,10 @@
 Hello {{ order.full_name }},
 
-Thank you for your purchase!
+Thank you for your service purchase!
 
-This is a confirmation of your order at SteakOut.
+This is a confirmation of your service order at Dhakal Consultancy.
 
-Your order information is below:
+Your service order information is below:
 
 Order Details:
 Order Number: {{ order.order_number }}
