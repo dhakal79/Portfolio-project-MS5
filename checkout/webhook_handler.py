@@ -121,17 +121,17 @@ class StripeWH_Handler:
                     original_purchase=purchase,
                     stripe_pid=pid,
                 )
-                for service_id, service_data in json.loads(purchase).service():
-                    service = Service.objects.get(id=service_id)
-                    if isinstance(service_data, int):
+                for item_id, item_data in json.loads(purchase).items():
+                    service = Service.objects.get(id=item_id)
+                    if isinstance(item_data, int):
                         order_line_item = OrderLineItem(
                             order=order,
                             service=service,
-                            quantity=service_data,
+                            quantity=item_data,
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in service_data['items_by_size'].services():     # noqa: E501
+                        for size, quantity in item_data['items_by_size'].items():     # noqa: E501
                             order_line_item = OrderLineItem(
                                 order=order,
                                 service=service,
